@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bieaanbwiyqsn"]
+
+[ext_resource type="Texture2D" uid="uid://ccqp4yehgomh6" path="res://Assets/Knight_and_Horse/Idle/Knight_idle1.png" id="1_7sqbh"]
+[ext_resource type="Texture2D" uid="uid://csohk1643genb" path="res://Assets/Knight_and_Horse/Idle/Knight_idle2.png" id="2_go076"]
+[ext_resource type="Texture2D" uid="uid://chotssc1tqliw" path="res://Assets/Knight_and_Horse/Idle/Knight_idle3.png" id="3_pcj6b"]
+[ext_resource type="Texture2D" uid="uid://cxbitub0uo0tg" path="res://Assets/Knight_and_Horse/Idle/Knight_idle4.png" id="4_1sqmh"]
+[ext_resource type="Texture2D" uid="uid://dwghh70w7sjdh" path="res://Assets/Knight_and_Horse/Idle/Knight_idle5.png" id="5_k0kvd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyp6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7sqbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_go076")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pcj6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1sqmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k0kvd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0donl"]
+radius = 17.8103
+
+[node name="Rosie" type="CharacterBody2D"]
+scale = Vector2(2.96569, 2.96569)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wyp6l")
+autoplay = "default"
+frame_progress = 0.484505
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.33719, 8.09254)
+scale = Vector2(1.02253, 0.989933)
+shape = SubResource("CircleShape2D_0donl")
+
+[node name="Camera2D" type="Camera2D" parent="."]

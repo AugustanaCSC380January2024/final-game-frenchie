@@ -1,0 +1,238 @@
+[gd_scene load_steps=30 format=3 uid="uid://u5djneg0wfty"]
+
+[ext_resource type="Script" path="res://Scripts/character_selection.gd" id="1_6ttkp"]
+[ext_resource type="FontFile" uid="uid://bcgwj1nxqiawx" path="res://Assets/Fonts/Canterbury.ttf" id="1_pv5e4"]
+[ext_resource type="Texture2D" uid="uid://cueo5r2hug0p2" path="res://Assets/Knight_and_Horse/Standing/Knight_standing1.png" id="2_007ma"]
+[ext_resource type="Texture2D" uid="uid://2kw5vtsnicjo" path="res://Assets/Knight_and_Horse/Standing/Knight_standing2.png" id="3_fi30m"]
+[ext_resource type="Texture2D" uid="uid://d3rapinosf1tt" path="res://Assets/Knight_and_Horse/Standing/Knight_standing3.png" id="4_icard"]
+[ext_resource type="Texture2D" uid="uid://drny2jghuvaos" path="res://Assets/Knight_and_Horse/Standing/Knight_standing4.png" id="5_g58n6"]
+[ext_resource type="Texture2D" uid="uid://b33pfuaadjmwm" path="res://Assets/Knight_and_Horse/Standing/Knight_standing5.png" id="6_8tn45"]
+[ext_resource type="Texture2D" uid="uid://cin0472p40ppx" path="res://Assets/Knight_and_Horse/Standing/Knight_standing6.png" id="7_5quvk"]
+[ext_resource type="Texture2D" uid="uid://dr1b5lex4h4r3" path="res://Assets/Knight_and_Horse/Standing/Knight_standing7.png" id="8_d6luf"]
+[ext_resource type="Texture2D" uid="uid://dasxep05cwl51" path="res://Assets/Knight_and_Horse/Standing/Knight_standing8.png" id="9_mtpjj"]
+[ext_resource type="Texture2D" uid="uid://dp41dphfekicg" path="res://Assets/Knight_and_Horse/Standing/Knight_standing9.png" id="10_ubcv7"]
+[ext_resource type="Texture2D" uid="uid://74rxq51y0i1m" path="res://Assets/Knight Hero Platfomer/Sword Raise.png" id="11_ovm4g"]
+[ext_resource type="PackedScene" uid="uid://co4hymab4l3w2" path="res://Scenes/background_1.tscn" id="12_5b0lq"]
+[ext_resource type="FontFile" uid="uid://brm5p8fd764cb" path="res://Assets/Fonts/BLKCHCRY.TTF" id="12_htnuk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3w8v"]
+font = ExtResource("1_pv5e4")
+font_size = 120
+font_color = Color(0, 0, 0, 1)
+outline_size = 22
+outline_color = Color(0.619608, 0.631373, 0.639216, 1)
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nya4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_007ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fi30m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_icard")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g58n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8tn45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5quvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d6luf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mtpjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ubcv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fi30m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_007ma")
+}],
+"loop": true,
+"name": &"Rosie",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytsf6"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(0, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2ilx"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(22, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2ipq"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(44, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0si2l"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(66, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq2id"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(88, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi3od"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(110, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j1sv"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(132, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7flw0"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(154, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6micr"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(176, 0, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1beuv"]
+atlas = ExtResource("11_ovm4g")
+region = Rect2(198, 0, 22, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n76fu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytsf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2ilx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2ipq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0si2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq2id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi3od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j1sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7flw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6micr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1beuv")
+}],
+"loop": true,
+"name": &"Billy",
+"speed": 10.0
+}]
+
+[sub_resource type="Theme" id="Theme_etqfp"]
+default_font = ExtResource("12_htnuk")
+default_font_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vol2r"]
+
+[node name="CharacterSelection" type="Node2D"]
+script = ExtResource("1_6ttkp")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 423.0
+offset_top = 105.0
+offset_right = 705.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Character Selection"
+label_settings = SubResource("LabelSettings_d3w8v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rosie" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(243, 309)
+scale = Vector2(6.66345, 6.76241)
+sprite_frames = SubResource("SpriteFrames_5nya4")
+animation = &"Rosie"
+frame_progress = 0.464045
+
+[node name="Billy" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(886, 361)
+scale = Vector2(8.40909, 8.40909)
+sprite_frames = SubResource("SpriteFrames_n76fu")
+animation = &"Billy"
+frame_progress = 0.263698
+flip_h = true
+
+[node name="Rosie2" type="Button" parent="."]
+offset_left = 139.0
+offset_top = 495.0
+offset_right = 354.0
+offset_bottom = 566.0
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_etqfp")
+text = "ROSIE
+"
+
+[node name="Play" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 416.0
+offset_top = 328.0
+offset_right = 712.0
+offset_bottom = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_etqfp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.603922, 0.156863, 0.180392, 1)
+theme_override_colors/font_hover_color = Color(0.741176, 0.211765, 0.235294, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vol2r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vol2r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vol2r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vol2r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vol2r")
+text = "PLAY
+"
+
+[node name="Billy2" type="Button" parent="."]
+offset_left = 816.0
+offset_top = 492.0
+offset_right = 987.0
+offset_bottom = 563.0
+theme = SubResource("Theme_etqfp")
+text = "BILLY
+"
+alignment = 0
+
+[node name="Background1" parent="." instance=ExtResource("12_5b0lq")]
+
+[connection signal="pressed" from="Rosie2" to="." method="_on_rosie_2_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Billy2" to="." method="_on_billy_2_pressed"]

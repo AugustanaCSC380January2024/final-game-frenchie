@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://co4hymab4l3w2"]
+
+[ext_resource type="Texture2D" uid="uid://dgvk2pepd4svp" path="res://Assets/craftpix-net-293214-ocean-and-clouds-free-pixel-art-backgrounds/Ocean_6/5.png" id="1_2klu6"]
+[ext_resource type="Script" path="res://Scripts/background_1.gd" id="1_ih8g4"]
+
+[node name="Background1" type="ParallaxBackground"]
+script = ExtResource("1_ih8g4")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(735, 472)
+scale = Vector2(0.902778, 0.902778)
+texture = ExtResource("1_2klu6")
+region_enabled = true
+region_rect = Rect2(495.148, 40.595, 2304, 1296)
