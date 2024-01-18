@@ -17,3 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://Scripts/game.gd"
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
