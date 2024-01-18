@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_028x4"]
-height = 28.0
+height = 24.8
 
 [node name="Billy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
