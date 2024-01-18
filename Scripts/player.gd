@@ -8,10 +8,22 @@ extends CharacterBody2D
 func _physics_process(delta):
 	if is_on_floor() == false:
 		velocity.y += gravity * delta
-	if is_on_floor():	
-		if Input.is_action_pressed("jump"):
-			velocity.y = -jump_force
+	if is_on_floor() && (Input.is_action_just_pressed("jump")):
+			jump(jump_force)
 	
 	move_and_slide()
+	update_animations()
+	
+func update_animations():
+	if is_on_floor():
+		player_sprite.play("running")
+	else:
+		if velocity.y  < 0:
+			player_sprite.play("jump")
+		else:
+			player_sprite.play("fall")
+			
+func jump(force):
+	velocity.y = -force
 func _ready():
 	pass
