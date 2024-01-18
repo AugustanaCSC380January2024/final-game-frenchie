@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cprl4r6gokb7p"]
+[gd_scene load_steps=25 format=3 uid="uid://cprl4r6gokb7p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_s7ey0"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
@@ -38,49 +38,13 @@ region = Rect2(44, 0, 22, 24)
 atlas = ExtResource("3_e200w")
 region = Rect2(66, 0, 22, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2l4kr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk8sy"]
 atlas = ExtResource("4_81cxi")
 region = Rect2(0, 0, 22, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4bvh"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(22, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdydv"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(44, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa42l"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(66, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibbup"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(88, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f646j"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(110, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_altvo"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(132, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pqsfj"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(154, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6wkld"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v66es"]
 atlas = ExtResource("4_81cxi")
 region = Rect2(176, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okauq"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(198, 0, 22, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rq5ji"]
-atlas = ExtResource("4_81cxi")
-region = Rect2(220, 0, 22, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hil48"]
 atlas = ExtResource("2_toahi")
@@ -144,37 +108,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2l4kr")
+"texture": SubResource("AtlasTexture_qk8sy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w4bvh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdydv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xa42l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ibbup")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f646j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_altvo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pqsfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6wkld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okauq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rq5ji")
+"texture": SubResource("AtlasTexture_v66es")
 }],
 "loop": true,
 "name": &"rolling",
@@ -219,7 +156,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_q142p")
 animation = &"rolling"
 autoplay = "running"
-frame_progress = 0.199295
+frame_progress = 0.788223
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
