@@ -22,13 +22,19 @@ func _physics_process(delta):
 	
 func update_animations():
 	if (ray.is_colliding()):
+		var orig = ray.global_transform.origin
+		var colli = ray.get_collision_point()
+		var dist = abs(orig.y - colli.y)
+		var depth = abs(ray.target_position.y - dist)
 		
-	print(ray.is_colliding())
+		position.y == depth
 	if is_on_floor():
 		if Input.is_action_pressed("rolling"):
 			player_sprite.play("rolling")
 		else:
 			player_sprite.play("running")
+			runningmotion.disabled = false
+			rollingmotion.disabled = true
 	else:
 		if velocity.y  < 0:
 			player_sprite.play("jump")
