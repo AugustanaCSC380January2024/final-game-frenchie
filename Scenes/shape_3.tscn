@@ -10,3 +10,11 @@ position = Vector2(525.355, 23.8311)
 rotation = 3.06406
 scale = Vector2(0.268834, -4.56164)
 shape = SubResource("RectangleShape2D_p0s7l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 1013.0
+offset_bottom = 85.0
+rotation = -0.0775367
+color = Color(0.996078, 0.890196, 1, 1)

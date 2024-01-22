@@ -1,12 +1,19 @@
 [gd_scene load_steps=2 format=3 uid="uid://7nctbr0j8vg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhbg"]
-size = Vector2(3631.23, 24.9917)
+size = Vector2(3631.23, 19.7304)
 
 [node name="shape4" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(523.099, 30.9985)
+position = Vector2(523.099, 18.9985)
 rotation = -3.14159
 scale = Vector2(0.268834, -4.56164)
 shape = SubResource("RectangleShape2D_2nhbg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 36.0
+offset_top = -25.0
+offset_right = 1009.0
+offset_bottom = 67.0
+color = Color(0.996078, 0.890196, 1, 1)

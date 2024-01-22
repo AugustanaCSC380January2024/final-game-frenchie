@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bieaanbwiyqsn"]
+[gd_scene load_steps=42 format=3 uid="uid://bieaanbwiyqsn"]
 
 [ext_resource type="Texture2D" uid="uid://ccqp4yehgomh6" path="res://Assets/Knight_and_Horse/Idle/Knight_idle1.png" id="1_7sqbh"]
 [ext_resource type="Script" path="res://Scripts/rosie.gd" id="1_jvrkv"]
@@ -22,10 +22,21 @@
 [ext_resource type="Texture2D" uid="uid://duebx2ab5lqq0" path="res://Assets/Knight_and_Horse/Attack/Knight_attack5.png" id="10_inr11"]
 [ext_resource type="Texture2D" uid="uid://ouw6ce5fvj7l" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop5.png" id="10_yujjq"]
 [ext_resource type="Texture2D" uid="uid://3itiankann7x" path="res://Assets/Knight_and_Horse/Attack/Knight_attack6.png" id="11_ixy0k"]
+[ext_resource type="Texture2D" uid="uid://cv1r5qw5lxfjt" path="res://Assets/Knight_and_Horse/Death/Knight_death1.png" id="12_18pli"]
 [ext_resource type="Texture2D" uid="uid://c1kshcskw7mqv" path="res://Assets/Knight_and_Horse/Attack/Knight_attack7.png" id="12_mhev1"]
 [ext_resource type="Texture2D" uid="uid://c84np3lw5csy6" path="res://Assets/Knight_and_Horse/Attack/Knight_attack8.png" id="13_hepma"]
+[ext_resource type="Texture2D" uid="uid://ctaepmkdkucx5" path="res://Assets/Knight_and_Horse/Death/Knight_death2.png" id="13_pyu2l"]
+[ext_resource type="Texture2D" uid="uid://1ckspcbdmjy8" path="res://Assets/Knight_and_Horse/Death/Knight_death3.png" id="14_7mpam"]
 [ext_resource type="Texture2D" uid="uid://dh637mpboswyi" path="res://Assets/Knight_and_Horse/Attack/Knight_attack9.png" id="14_lr1k8"]
 [ext_resource type="Texture2D" uid="uid://dnbkdps5ege8g" path="res://Assets/Knight_and_Horse/Attack/Knight_attack10.png" id="15_fak7r"]
+[ext_resource type="Texture2D" uid="uid://br40dhkw5vkt7" path="res://Assets/Knight_and_Horse/Death/Knight_death4.png" id="15_yvx2q"]
+[ext_resource type="Texture2D" uid="uid://c8a5yvol2r5h5" path="res://Assets/Knight_and_Horse/Death/Knight_death5.png" id="16_u04te"]
+[ext_resource type="Texture2D" uid="uid://b8a107fj5rqn3" path="res://Assets/Knight_and_Horse/Death/Knight_death6.png" id="17_7divh"]
+[ext_resource type="Texture2D" uid="uid://c8u42oruuvt2x" path="res://Assets/Knight_and_Horse/Death/Knight_death7.png" id="18_tm78q"]
+[ext_resource type="Texture2D" uid="uid://btkjke18jl48r" path="res://Assets/Knight_and_Horse/Death/Knight_death8.png" id="19_27q3n"]
+[ext_resource type="Texture2D" uid="uid://besraq8vm507m" path="res://Assets/Knight_and_Horse/Death/Knight_death9.png" id="20_hfwd6"]
+[ext_resource type="Texture2D" uid="uid://cf4y3kkcxlxbw" path="res://Assets/Knight_and_Horse/Death/Knight_death10.png" id="21_gwgxy"]
+[ext_resource type="Texture2D" uid="uid://btfj80ulsjtmi" path="res://Assets/Knight_and_Horse/Death/Knight_death11.png" id="22_ifp5i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wyp6l"]
 animations = [{
@@ -68,6 +79,44 @@ animations = [{
 "loop": true,
 "name": &"dehorse",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_18pli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pyu2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7mpam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yvx2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u04te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7divh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tm78q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_27q3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hfwd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gwgxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ifp5i")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -141,9 +190,9 @@ script = ExtResource("1_jvrkv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
-animation = &"jumping"
+animation = &"die"
 autoplay = "default"
-frame_progress = 0.347006
+frame_progress = 0.672524
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)

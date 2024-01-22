@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://s0ydfqphtreq"]
+
+[ext_resource type="Texture2D" uid="uid://ptj78qbmamm4" path="res://Assets/Flying eye/Attack3.png" id="1_fck85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwkx2"]
+radius = 27.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qqrv"]
+atlas = ExtResource("1_fck85")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkklh"]
+atlas = ExtResource("1_fck85")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifdk1"]
+atlas = ExtResource("1_fck85")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c041g"]
+atlas = ExtResource("1_fck85")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xeej"]
+atlas = ExtResource("1_fck85")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4jm2"]
+atlas = ExtResource("1_fck85")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6gpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qqrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkklh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifdk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c041g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xeej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4jm2")
+}],
+"loop": true,
+"name": &"flying bat",
+"speed": 5.0
+}]
+
+[node name="Bat" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwkx2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -4)
+scale = Vector2(1.31333, 1.31333)
+sprite_frames = SubResource("SpriteFrames_h6gpo")
+animation = &"flying bat"
+frame_progress = 0.434548
+flip_h = true

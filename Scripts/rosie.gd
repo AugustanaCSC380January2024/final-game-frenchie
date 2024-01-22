@@ -50,6 +50,8 @@ func rolling():
 func _ready():
 	pass
 
+func die():
+	player_sprite.play("die")
 
 func _on_head_box_body_entered(body):
 	velocity.y = max(velocity.y, 0)

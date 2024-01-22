@@ -48,6 +48,8 @@ func rolling():
 	runningmotion.disabled = true
 	rollingmotion.disabled = false
 	
+func die():
+	player_sprite.play("die")
 func _ready():
 	pass
 
