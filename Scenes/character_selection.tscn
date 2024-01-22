@@ -233,6 +233,8 @@ alignment = 0
 
 [node name="Background1" parent="." instance=ExtResource("12_5b0lq")]
 
+[node name="Characters" type="Node" parent="."]
+
 [connection signal="pressed" from="Rosie2" to="." method="_on_rosie_2_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Billy2" to="." method="_on_billy_2_pressed"]

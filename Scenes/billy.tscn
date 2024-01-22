@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://cprl4r6gokb7p"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_s7ey0"]
+[ext_resource type="Script" path="res://Scripts/billy.gd" id="1_hntgj"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
 [ext_resource type="Texture2D" uid="uid://e8viikdtlnew" path="res://Assets/Knight Hero Platfomer/Run.png" id="2_toahi"]
 [ext_resource type="Texture2D" uid="uid://c6j5sheucnx5y" path="res://Assets/Knight Hero Platfomer/Jump.png" id="3_e200w"]
@@ -212,7 +212,7 @@ height = 20.0
 
 [node name="Billy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
-script = ExtResource("1_s7ey0")
+script = ExtResource("1_hntgj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -220,7 +220,6 @@ position = Vector2(18.6, 62.2)
 sprite_frames = SubResource("SpriteFrames_q142p")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.138285
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(17.6, 62.2)

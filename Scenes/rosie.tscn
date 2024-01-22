@@ -1,10 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://bieaanbwiyqsn"]
+[gd_scene load_steps=30 format=3 uid="uid://bieaanbwiyqsn"]
 
 [ext_resource type="Texture2D" uid="uid://ccqp4yehgomh6" path="res://Assets/Knight_and_Horse/Idle/Knight_idle1.png" id="1_7sqbh"]
+[ext_resource type="Script" path="res://Scripts/rosie.gd" id="1_jvrkv"]
 [ext_resource type="Texture2D" uid="uid://csohk1643genb" path="res://Assets/Knight_and_Horse/Idle/Knight_idle2.png" id="2_go076"]
 [ext_resource type="Texture2D" uid="uid://chotssc1tqliw" path="res://Assets/Knight_and_Horse/Idle/Knight_idle3.png" id="3_pcj6b"]
 [ext_resource type="Texture2D" uid="uid://cxbitub0uo0tg" path="res://Assets/Knight_and_Horse/Idle/Knight_idle4.png" id="4_1sqmh"]
 [ext_resource type="Texture2D" uid="uid://dwghh70w7sjdh" path="res://Assets/Knight_and_Horse/Idle/Knight_idle5.png" id="5_k0kvd"]
+[ext_resource type="Texture2D" uid="uid://cn6jec0006ssh" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop1.png" id="6_dum6a"]
+[ext_resource type="Texture2D" uid="uid://c4wttojdhot5u" path="res://Assets/Knight_and_Horse/Gallop/Knight_gallop1.png" id="6_ojvhp"]
+[ext_resource type="Texture2D" uid="uid://dib2476vmdddc" path="res://Assets/Knight_and_Horse/Attack/Knight_attack1.png" id="6_pryrq"]
+[ext_resource type="Texture2D" uid="uid://bxyv5ks7ainm1" path="res://Assets/Knight_and_Horse/Gallop/Knight_gallop2.png" id="7_ix5fj"]
+[ext_resource type="Texture2D" uid="uid://2q6wj60drj8j" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop2.png" id="7_ox7g4"]
+[ext_resource type="Texture2D" uid="uid://d0vgvcnfu2xxs" path="res://Assets/Knight_and_Horse/Attack/Knight_attack2.png" id="7_rjii0"]
+[ext_resource type="Texture2D" uid="uid://bdwqigh68dwa6" path="res://Assets/Knight_and_Horse/Gallop/Knight_gallop3.png" id="8_a1uk8"]
+[ext_resource type="Texture2D" uid="uid://dktwau3yraw25" path="res://Assets/Knight_and_Horse/Attack/Knight_attack3.png" id="8_cdi6j"]
+[ext_resource type="Texture2D" uid="uid://c80q5mqbvsa2w" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop3.png" id="8_sfg2u"]
+[ext_resource type="Texture2D" uid="uid://bxtfyvpsvuuof" path="res://Assets/Knight_and_Horse/Attack/Knight_attack4.png" id="9_7y458"]
+[ext_resource type="Texture2D" uid="uid://2vlpa5gx5dt4" path="res://Assets/Knight_and_Horse/Gallop/Knight_gallop4.png" id="9_81xi3"]
+[ext_resource type="Texture2D" uid="uid://bdcpn47k2l8cr" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop4.png" id="9_t6ngc"]
+[ext_resource type="Texture2D" uid="uid://b11mxgm4m3lj6" path="res://Assets/Knight_and_Horse/Gallop/Knight_gallop5.png" id="10_8k6y1"]
+[ext_resource type="Texture2D" uid="uid://duebx2ab5lqq0" path="res://Assets/Knight_and_Horse/Attack/Knight_attack5.png" id="10_inr11"]
+[ext_resource type="Texture2D" uid="uid://ouw6ce5fvj7l" path="res://Assets/Knight_and_Horse/Gallop/Horse_gallop5.png" id="10_yujjq"]
+[ext_resource type="Texture2D" uid="uid://3itiankann7x" path="res://Assets/Knight_and_Horse/Attack/Knight_attack6.png" id="11_ixy0k"]
+[ext_resource type="Texture2D" uid="uid://c1kshcskw7mqv" path="res://Assets/Knight_and_Horse/Attack/Knight_attack7.png" id="12_mhev1"]
+[ext_resource type="Texture2D" uid="uid://c84np3lw5csy6" path="res://Assets/Knight_and_Horse/Attack/Knight_attack8.png" id="13_hepma"]
+[ext_resource type="Texture2D" uid="uid://dh637mpboswyi" path="res://Assets/Knight_and_Horse/Attack/Knight_attack9.png" id="14_lr1k8"]
+[ext_resource type="Texture2D" uid="uid://dnbkdps5ege8g" path="res://Assets/Knight_and_Horse/Attack/Knight_attack10.png" id="15_fak7r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wyp6l"]
 animations = [{
@@ -27,23 +48,111 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_dum6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ox7g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sfg2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t6ngc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yujjq")
+}],
+"loop": true,
+"name": &"dehorse",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pryrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rjii0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cdi6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7y458")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_inr11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ixy0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mhev1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hepma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lr1k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fak7r")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ojvhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ix5fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a1uk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_81xi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8k6y1")
+}],
+"loop": true,
+"name": &"running",
+"speed": 20.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0donl"]
 radius = 17.8103
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkgk4"]
+radius = 12.8531
+
 [node name="Rosie" type="CharacterBody2D"]
 scale = Vector2(2.96569, 2.96569)
+script = ExtResource("1_jvrkv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
+animation = &"dehorse"
 autoplay = "default"
-frame_progress = 0.484505
+frame_progress = 0.260202
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)
 scale = Vector2(1.02253, 0.989933)
 shape = SubResource("CircleShape2D_0donl")
 
+[node name="WithoutHorse" type="CollisionShape2D" parent="."]
+position = Vector2(0.33719, 12.476)
+shape = SubResource("CircleShape2D_bkgk4")
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-0.33719, 29.6727)

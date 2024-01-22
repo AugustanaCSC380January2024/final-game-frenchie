@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c11tayyh7wj8b"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_epxmh"]
+[ext_resource type="Script" path="res://Scripts/billy.gd" id="1_epxmh"]
 [ext_resource type="Texture2D" uid="uid://e8viikdtlnew" path="res://Assets/Knight Hero Platfomer/Run.png" id="2_wqje3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hil48"]

@@ -198,6 +198,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_ks8gn")
 
-[node name="TileMap" type="TileMap"]
+[node name="TileMap1" type="TileMap"]
 tile_set = SubResource("TileSet_g6wfw")
 format = 2
