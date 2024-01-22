@@ -47,5 +47,10 @@ func jump(force):
 func rolling():
 	runningmotion.disabled = true
 	rollingmotion.disabled = false
+	
 func _ready():
 	pass
+
+
+func _on_head_box_body_entered(body):
+	velocity.y = max(velocity.y, 0)

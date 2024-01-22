@@ -30,14 +30,14 @@ func update_animations():
 		position.y == depth
 	if is_on_floor():
 		if Input.is_action_pressed("rolling"):
-			player_sprite.play("rolling")
+			player_sprite.play("dehorse")
 		else:
 			player_sprite.play("running")
 			runningmotion.disabled = false
 			dehorsemotion.disabled = true
 	else:
 		if velocity.y  < 0:
-			player_sprite.play("jump")
+			player_sprite.play("jumping")
 		else:
 			player_sprite.play("fall")
 			
@@ -49,3 +49,7 @@ func rolling():
 	dehorsemotion.disabled = false
 func _ready():
 	pass
+
+
+func _on_head_box_body_entered(body):
+	velocity.y = max(velocity.y, 0)

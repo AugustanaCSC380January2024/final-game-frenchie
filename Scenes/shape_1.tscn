@@ -1,12 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkhruo6v5mbpf"]
+[gd_scene load_steps=4 format=3 uid="uid://dkhruo6v5mbpf"]
+
+[ext_resource type="Texture2D" uid="uid://d01fhjp8sdfwn" path="res://Assets/Cave_Tileset.png" id="1_v7toi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhbg"]
-size = Vector2(3817.95, 16.4345)
+size = Vector2(3571.71, 14.2493)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayupn"]
+size = Vector2(426, 44)
 
 [node name="shape1" type="StaticBody2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(530.5, 9.5)
+scale = Vector2(5.44886, 0.7625)
+texture = ExtResource("1_v7toi")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(498, 11.481)
+position = Vector2(531.099, 11.5)
 rotation = -3.14159
 scale = Vector2(0.268834, -4.56164)
 shape = SubResource("RectangleShape2D_2nhbg")
+debug_color = Color(0.717647, 0.372549, 0.788235, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(566, -108)
+shape = SubResource("RectangleShape2D_ayupn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(910, -210)
+shape = SubResource("RectangleShape2D_ayupn")

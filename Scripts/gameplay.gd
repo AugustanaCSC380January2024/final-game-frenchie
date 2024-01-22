@@ -6,7 +6,10 @@ var segments = [
 	preload("res://Scenes/shape_1.tscn"),
 	preload("res://Scenes/shape_2.tscn"),
 	preload("res://Scenes/shape_3.tscn"),
-	preload("res://Scenes/shape_4.tscn")
+	preload("res://Scenes/shape_4.tscn"),
+	preload("res://Scenes/shape_5.tscn"),
+	preload("res://Scenes/shape6.tscn"),
+	preload("res://Scenes/shape_7.tscn")
 	]
 var speed = 200
 
@@ -14,6 +17,7 @@ func _ready():
 	get_player()
 	var player_ins = player.instantiate()
 	add_child(player_ins)
+	player_ins.position = $PlayerPosition.position
 	randomize()
 	spawn_inst(0, 0)
 	spawn_inst(1024, 0)
@@ -27,7 +31,7 @@ func get_player():
 func _physics_process(delta):
 	for area in $Areas.get_children():
 		area.position.x -= speed*delta
-		if area.position.x < -1024:
+		if area.position.x < -1050:
 			spawn_inst(area.position.x + 2048, 0)
 			area.queue_free()
 		

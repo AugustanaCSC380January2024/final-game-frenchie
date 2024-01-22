@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cprl4r6gokb7p"]
+[gd_scene load_steps=35 format=3 uid="uid://cprl4r6gokb7p"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_hntgj"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
@@ -210,6 +210,9 @@ height = 24.8
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlckb"]
 height = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt7so"]
+size = Vector2(20, 4.59999)
+
 [node name="Billy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_hntgj")
@@ -239,3 +242,12 @@ position_smoothing_speed = 20.0
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(15.8, 64.8)
 target_position = Vector2(0, 15)
+
+[node name="HeadBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadBox"]
+position = Vector2(17.2, 52.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nt7so")
+
+[connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]
