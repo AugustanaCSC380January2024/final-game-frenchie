@@ -40,7 +40,7 @@ func spawn_inst(x, y):
 	var inst = segments[randi() % len(segments)].instantiate()
 	inst.position = Vector2(x, y)
 	$Areas.add_child(inst)
-	speed += 20
+	speed += 10
 
 
 func _on_deathzone_area_entered(area):
@@ -56,5 +56,5 @@ func _on_spawner_clock_clock_spawned(clock_ins):
 	add_child(clock_ins)
 
 func on_clock_claimed():
-	speed -= 30
+	speed -= 10
 	

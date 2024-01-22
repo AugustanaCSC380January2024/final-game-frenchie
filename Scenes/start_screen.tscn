@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://u3b4nlcsgd7c"]
+
+[ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_4ww6e"]
+[ext_resource type="Texture2D" uid="uid://neltn1qnfmxk" path="res://Assets/48f3d608-ecb8-4e08-8393-b86389b6d756.jpg" id="2_6bsf5"]
+[ext_resource type="FontFile" uid="uid://brm5p8fd764cb" path="res://Assets/Fonts/BLKCHCRY.TTF" id="3_6atvd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7ojj"]
+font = ExtResource("3_6atvd")
+font_size = 84
+font_color = Color(0.517647, 0.113725, 0.137255, 1)
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bloyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7krto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kjpw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1ovc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kep66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8kik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2rd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tor0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjdub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ft4x"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ww6e")
+
+[node name="StartsScreenBG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="StartsScreenBG"]
+motion_mirroring = Vector2(5760, 3210)
+
+[node name="Sprite2D" type="Sprite2D" parent="StartsScreenBG/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(579, 326.417)
+scale = Vector2(1.14309, 0.649576)
+texture = ExtResource("2_6bsf5")
+region_rect = Rect2(0, 0, 5760, 3210)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_top = 111.0
+offset_right = 75.0
+offset_bottom = 134.0
+grow_horizontal = 2
+text = "CLOUD CONQUEST"
+label_settings = SubResource("LabelSettings_j7ojj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -9.0
+offset_right = 148.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.443137, 0.0862745, 0.164706, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_6atvd")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bloyn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7krto")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1kjpw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_p1ovc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kep66")
+text = "START
+"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 140.0
+offset_right = 80.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_6atvd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d8kik")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a2rd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4tor0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tjdub")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ft4x")
+text = "QUIT
+"
+
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
