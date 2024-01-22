@@ -185,6 +185,8 @@ size = Vector2(28.9983, 6.6281)
 
 [node name="Rosie" type="CharacterBody2D"]
 scale = Vector2(2.96569, 2.96569)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_jvrkv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -192,7 +194,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
 animation = &"die"
 autoplay = "default"
-frame_progress = 0.629727
+frame_progress = 0.829415
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)

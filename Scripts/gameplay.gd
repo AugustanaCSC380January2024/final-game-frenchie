@@ -1,7 +1,11 @@
 extends Node2D
 
 var player
+var score = 0
+var game_running = true
 
+@onready var hud = $UILayer/HUD
+@onready var ui = $UILayer
 
 var segments = [
 	preload("res://Scenes/shape_1.tscn"),
@@ -42,12 +46,18 @@ func spawn_inst(x, y):
 	$Areas.add_child(inst)
 	speed += 10
 
+func _process(delta):
+	if game_running == true:
+		score+= 1
+		hud.set_score(score)
+
 
 func _on_deathzone_area_entered(area):
 	area.queue_free()
 
 
 func _on_spawner_bat_spawned(bat_ins):
+	bat_ins.connect("died", on_bat)
 	add_child(bat_ins)
 
 
@@ -57,4 +67,15 @@ func _on_spawner_clock_clock_spawned(clock_ins):
 
 func on_clock_claimed():
 	speed -= 10
+	score += 100
 	
+func on_bat():
+	await get_tree().create_timer(1.5).timeout
+	game_running == false
+	ui.show_game_over(true)
+
+
+func _on_player_deathzone_body_entered(body):
+	game_running == false
+	await get_tree().create_timer(1.5).timeout
+	ui.show_game_over(true)
