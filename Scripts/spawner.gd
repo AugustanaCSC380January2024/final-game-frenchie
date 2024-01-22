@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var spawn_pos = $SpawnPositions
+signal bat_spawned(bat_ins)
 
 var bat_scene = preload("res://Scenes/bat.tscn")
 
@@ -12,5 +13,6 @@ func spawn_bats():
 	var ran_spawn_pos = spawn_pos_array.pick_random()
 	var bat_ins = bat_scene.instantiate()
 	bat_ins.global_position = ran_spawn_pos.global_position
-	add_child(bat_ins)
+	emit_signal("bat_spawned", bat_ins)
+	#add_child(bat_ins)
 	

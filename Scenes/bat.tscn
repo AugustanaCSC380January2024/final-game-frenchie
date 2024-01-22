@@ -71,5 +71,7 @@ scale = Vector2(2.28, 2.28)
 sprite_frames = SubResource("SpriteFrames_h6gpo")
 animation = &"flying bat"
 autoplay = "flying bat"
-frame_progress = 0.384261
+frame_progress = 0.756897
 flip_h = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

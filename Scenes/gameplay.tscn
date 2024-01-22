@@ -17,7 +17,7 @@ script = ExtResource("1_c26ar")
 position = Vector2(165, 675)
 
 [node name="PlayerPosition" type="Marker2D" parent="."]
-position = Vector2(199, 204)
+position = Vector2(82, 210)
 
 [node name="Spawner" parent="." instance=ExtResource("3_cfydq")]
 
@@ -31,4 +31,6 @@ collision_mask = 4
 position = Vector2(-630, 324)
 shape = SubResource("RectangleShape2D_0ehx6")
 
+[connection signal="bat_spawned" from="Spawner" to="." method="_on_spawner_bat_spawned"]
+[connection signal="clock_spawned" from="SpawnerClock" to="." method="_on_spawner_clock_clock_spawned"]
 [connection signal="area_entered" from="Deathzone" to="." method="_on_deathzone_area_entered"]

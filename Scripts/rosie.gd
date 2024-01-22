@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var gravity = 1000
 @export var jump_force = 550
 
+signal rosiedie
 @onready var ray = $RayCast2D
 @onready var player_sprite = $AnimatedSprite2D
 @onready var runningmotion = $Running
@@ -50,8 +51,9 @@ func rolling():
 func _ready():
 	pass
 
-func die():
-	player_sprite.play("die")
+func died():
+	emit_signal("rosiedie")
+	queue_free()
 
 func _on_head_box_body_entered(body):
 	velocity.y = max(velocity.y, 0)

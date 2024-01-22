@@ -10,9 +10,6 @@ script = ExtResource("1_4bwpa")
 [node name="Spawn_Pos3" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(1203, 546)
 
-[node name="Spawn_Pos4" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(1203, 421)
-
 [node name="Spawn_Pos5" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(1203, 296)
 
@@ -20,7 +17,7 @@ position = Vector2(1203, 296)
 position = Vector2(1204, 171)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

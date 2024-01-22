@@ -2,6 +2,7 @@ extends Node2D
 
 var player
 
+
 var segments = [
 	preload("res://Scenes/shape_1.tscn"),
 	preload("res://Scenes/shape_2.tscn"),
@@ -44,3 +45,16 @@ func spawn_inst(x, y):
 
 func _on_deathzone_area_entered(area):
 	area.queue_free()
+
+
+func _on_spawner_bat_spawned(bat_ins):
+	add_child(bat_ins)
+
+
+func _on_spawner_clock_clock_spawned(clock_ins):
+	clock_ins.connect("claimed", on_clock_claimed)
+	add_child(clock_ins)
+
+func on_clock_claimed():
+	speed -= 30
+	

@@ -50,12 +50,13 @@ func rolling():
 	runningmotion.disabled = true
 	rollingmotion.disabled = false
 	
-func die():
+func died():
 	emit_signal("billydie")
-	player_sprite.play("die")
+	queue_free()
 func _ready():
 	pass
 
 
 func _on_head_box_body_entered(body):
 	velocity.y = max(velocity.y, 0)
+	
