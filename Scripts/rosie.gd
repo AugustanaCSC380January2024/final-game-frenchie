@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var gravity = 1000
-@export var jump_force = 500
+@export var jump_force = 550
 
 @onready var ray = $RayCast2D
 @onready var player_sprite = $AnimatedSprite2D

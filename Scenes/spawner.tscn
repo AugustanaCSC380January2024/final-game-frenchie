@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bywgrtw1g8jf4"]
+
+[ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_4bwpa"]
+
+[node name="SpawnerBat" type="Node2D"]
+script = ExtResource("1_4bwpa")
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="Spawn_Pos3" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1203, 546)
+
+[node name="Spawn_Pos4" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1203, 421)
+
+[node name="Spawn_Pos5" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1203, 296)
+
+[node name="Spawn_Pos6" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1204, 171)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

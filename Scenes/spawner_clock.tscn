@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvfegj1xqqhi7"]
+
+[ext_resource type="Script" path="res://Scripts/spawner_clock.gd" id="1_qrj5g"]
+
+[node name="SpawnerClock" type="Node2D"]
+script = ExtResource("1_qrj5g")
+
+[node name="SpawnPositionsClock" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositionsClock"]
+position = Vector2(1203, 296)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPositionsClock"]
+position = Vector2(1203, 421)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPositionsClock"]
+position = Vector2(1203, 546)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

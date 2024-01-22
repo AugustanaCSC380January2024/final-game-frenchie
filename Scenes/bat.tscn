@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://s0ydfqphtreq"]
+[gd_scene load_steps=11 format=3 uid="uid://s0ydfqphtreq"]
 
 [ext_resource type="Texture2D" uid="uid://ptj78qbmamm4" path="res://Assets/Flying eye/Attack3.png" id="1_fck85"]
+[ext_resource type="Script" path="res://Scripts/bat.gd" id="1_syyu1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwkx2"]
-radius = 27.0
+radius = 44.7214
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qqrv"]
 atlas = ExtResource("1_fck85")
@@ -52,10 +53,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"flying bat",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [node name="Bat" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_syyu1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qwkx2")
@@ -63,8 +67,9 @@ shape = SubResource("CircleShape2D_qwkx2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(8, -4)
-scale = Vector2(1.31333, 1.31333)
+scale = Vector2(2.28, 2.28)
 sprite_frames = SubResource("SpriteFrames_h6gpo")
 animation = &"flying bat"
-frame_progress = 0.434548
+autoplay = "flying bat"
+frame_progress = 0.384261
 flip_h = true

@@ -40,3 +40,7 @@ func spawn_inst(x, y):
 	inst.position = Vector2(x, y)
 	$Areas.add_child(inst)
 	speed += 20
+
+
+func _on_deathzone_area_entered(area):
+	area.queue_free()

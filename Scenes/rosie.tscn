@@ -192,7 +192,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
 animation = &"die"
 autoplay = "default"
-frame_progress = 0.672524
+frame_progress = 0.288522
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)

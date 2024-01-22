@@ -9,7 +9,7 @@ size = Vector2(386, 32)
 polygon = PackedVector2Array(18, 14, 31, 42, 56, 52, 140, 71, 167, 51, 238, 60, 317, 60, 544, 89, 745, 70, 948, 65, 1015, 76, 1086, 71, 1095, 38, 1102, 11, 1064, -40, 973, -8, 888, -33, 781, -55, 734, -37, 720, -25, 578, -52, 503, -51, 404, -61, 381, -49, 342, -33, 294, -63, 246, -44, 205, -38, 149, -33, 107, -22, 68, -34, 33, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(593, -127)
+position = Vector2(594, -140)
 shape = SubResource("RectangleShape2D_yp0vq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
@@ -18,9 +18,9 @@ shape = SubResource("RectangleShape2D_yp0vq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 399.0
-offset_top = -141.0
+offset_top = -154.0
 offset_right = 787.0
-offset_bottom = -111.0
+offset_bottom = -124.0
 color = Color(0.996078, 0.890196, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
