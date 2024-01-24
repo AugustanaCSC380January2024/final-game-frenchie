@@ -42,6 +42,41 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_pryrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rjii0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cdi6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7y458")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_inr11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ixy0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mhev1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hepma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lr1k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fak7r")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_7sqbh")
 }, {
 "duration": 1.0,
@@ -192,9 +227,9 @@ script = ExtResource("1_jvrkv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
-animation = &"die"
+animation = &"attack"
 autoplay = "default"
-frame_progress = 0.829415
+frame_progress = 0.421849
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)
@@ -214,7 +249,7 @@ target_position = Vector2(-0.33719, 29.6727)
 [node name="HeadBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadBox"]
-position = Vector2(1.60785e-07, -6.4066)
+position = Vector2(0.674379, -6.06941)
 shape = SubResource("RectangleShape2D_cks4g")
 
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]

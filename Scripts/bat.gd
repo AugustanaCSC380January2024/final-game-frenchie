@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 400
+@export var speed = 300
 signal died
 
 
@@ -13,6 +13,7 @@ func die():
 
 
 
-func _on_body_entered(body):
-	body.died()
-	die()
+func _on_hurt_box_area_entered(area):
+	if area.name == "HitBox": return
+	$HitBox.set_deferred("monitorable", false)
+	queue_free()

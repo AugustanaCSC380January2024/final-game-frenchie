@@ -3,7 +3,7 @@ extends Node2D
 var player
 var score = 0
 var game_running = true
-
+var player_ins
 @onready var hud = $UILayer/HUD
 @onready var ui = $UILayer
 
@@ -16,11 +16,11 @@ var segments = [
 	preload("res://Scenes/shape6.tscn"),
 	preload("res://Scenes/shape_7.tscn")
 	]
-var speed = 200
+var speed = 150
 
 func _ready():
 	get_player()
-	var player_ins = player.instantiate()
+	player_ins = player.instantiate()
 	add_child(player_ins)
 	player_ins.position = $PlayerPosition.position
 	randomize()
@@ -44,11 +44,13 @@ func spawn_inst(x, y):
 	var inst = segments[randi() % len(segments)].instantiate()
 	inst.position = Vector2(x, y)
 	$Areas.add_child(inst)
-	speed += 10
+	speed += 5
 
 func _process(delta):
 	if game_running == true:
 		score+= 1
+		hud.set_score(score)
+	else:
 		hud.set_score(score)
 
 
@@ -57,7 +59,7 @@ func _on_deathzone_area_entered(area):
 
 
 func _on_spawner_bat_spawned(bat_ins):
-	bat_ins.connect("died", on_bat)
+	#bat_ins.connect("died", on_bat)
 	add_child(bat_ins)
 
 
@@ -69,13 +71,13 @@ func on_clock_claimed():
 	speed -= 10
 	score += 100
 	
-func on_bat():
-	await get_tree().create_timer(1.5).timeout
-	game_running == false
-	ui.show_game_over(true)
+#func on_bat():
+	#await get_tree().create_timer(1).timeout
+	#game_running == false
+	#ui.show_game_over(true)
 
 
 func _on_player_deathzone_body_entered(body):
 	game_running == false
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	ui.show_game_over(true)

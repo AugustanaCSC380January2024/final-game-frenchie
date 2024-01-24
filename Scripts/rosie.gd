@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var gravity = 1000
-@export var jump_force = 550
+@export var jump_force = 600
 
 signal rosiedie
 @onready var ray = $RayCast2D
@@ -17,6 +17,8 @@ func _physics_process(delta):
 		jump(jump_force)
 	if is_on_floor() && (Input.is_action_just_pressed("rolling")):
 		rolling()
+	if Input.is_action_just_pressed("attack"):
+		attacking()
 	
 	move_and_slide()
 	update_animations()
@@ -50,6 +52,9 @@ func rolling():
 	dehorsemotion.disabled = false
 func _ready():
 	pass
+
+func attacking():
+	player_sprite.play("attack")
 
 func died():
 	emit_signal("rosiedie")

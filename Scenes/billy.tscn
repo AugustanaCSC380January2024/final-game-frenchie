@@ -1,10 +1,51 @@
-[gd_scene load_steps=38 format=3 uid="uid://cprl4r6gokb7p"]
+[gd_scene load_steps=51 format=3 uid="uid://cprl4r6gokb7p"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_hntgj"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
+[ext_resource type="Texture2D" uid="uid://c0aohdqs1ardw" path="res://Assets/Knight Hero Platfomer/Attack 1.png" id="2_stqb7"]
 [ext_resource type="Texture2D" uid="uid://e8viikdtlnew" path="res://Assets/Knight Hero Platfomer/Run.png" id="2_toahi"]
 [ext_resource type="Texture2D" uid="uid://c6j5sheucnx5y" path="res://Assets/Knight Hero Platfomer/Jump.png" id="3_e200w"]
 [ext_resource type="Texture2D" uid="uid://dli6xdqteunso" path="res://Assets/Knight Hero Platfomer/Roll.png" id="4_81cxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77lkl"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3t2l"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(40, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fif2d"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(80, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdy4q"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(120, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f6l0"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(160, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh6f2"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(200, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6um61"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(240, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wibmq"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(280, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsc2v"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(320, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gcke"]
+atlas = ExtResource("2_stqb7")
+region = Rect2(360, 0, 40, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pf4a8"]
 atlas = ExtResource("4_81cxi")
@@ -120,6 +161,41 @@ region = Rect2(110, 0, 22, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q142p"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77lkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3t2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fif2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdy4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f6l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh6f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6um61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wibmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsc2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gcke")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pf4a8")
@@ -239,6 +315,13 @@ height = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt7so"]
 size = Vector2(20, 4.59999)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afwo4"]
+radius = 10.4
+height = 21.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqwko"]
+radius = 16.7266
+
 [node name="Billy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 collision_layer = 2
@@ -249,9 +332,9 @@ script = ExtResource("1_hntgj")
 texture_filter = 1
 position = Vector2(18.6, 62.2)
 sprite_frames = SubResource("SpriteFrames_q142p")
-animation = &"die"
+animation = &"attacking"
 autoplay = "running"
-frame_progress = 0.691489
+frame_progress = 0.0419879
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(17.6, 62.2)
@@ -275,8 +358,27 @@ target_position = Vector2(0, 15)
 [node name="HeadBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadBox"]
-position = Vector2(17.2, 52.4)
-scale = Vector2(1, 1)
+position = Vector2(17.4, 52.4)
 shape = SubResource("RectangleShape2D_nt7so")
 
+[node name="AttackingForce" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingForce"]
+position = Vector2(28.6, 63.8)
+shape = SubResource("CapsuleShape2D_afwo4")
+
+[node name="HurtBox" type="Area2D" parent="."]
+scale = Vector2(1.41926, 1.41926)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(12.6827, 45.9395)
+shape = SubResource("CircleShape2D_oqwko")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]
+[connection signal="body_entered" from="AttackingForce" to="." method="_on_attacking_force_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

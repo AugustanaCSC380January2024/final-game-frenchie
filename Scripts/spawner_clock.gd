@@ -13,4 +13,4 @@ func spawn_clock():
 	var clock_ins = clock_scene.instantiate()
 	clock_ins.global_position = ran_spawn_pos.global_position
 	emit_signal("clock_spawned", clock_ins)
-	#add_child(clock_ins)
+	
