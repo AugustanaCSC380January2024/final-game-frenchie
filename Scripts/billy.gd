@@ -9,9 +9,7 @@ extends CharacterBody2D
 @onready var rollingmotion = $Rolling
 @onready var player_camera = $Camera2D
 @onready var attackingmovement = $AttackingForce
-
-var bat_that_entered
-var isAttacking : bool = false
+@onready var gameoverscreen = $UILayer
 
 signal billydie
 
@@ -67,34 +65,28 @@ func rolling():
 	
 func attacking():
 	player_sprite.play("attacking")
+	attackingmovement.monitorable = true
+	attackingmovement.monitoring = true
 	attackingmovement.visible = true
 	await get_tree().create_timer(0.8).timeout
+	attackingmovement.monitorable = false
+	attackingmovement.monitoring = false
 	attackingmovement.visible = false
+	
 	
 func died():
 	emit_signal("billydie")
 	queue_free()
+	gameoverscreen.show_game_over(true)
+	print("Game Over")
 func _ready():
 	pass
 
 
 func _on_head_box_body_entered(body):
 	velocity.y = max(velocity.y, 0)
-	
-
-
-func _on_attacking_force_body_entered(body):
-	bat_that_entered = body
-	print(bat_that_entered)
-	body.queue_free()
-
-
-func _on_animated_sprite_2d_animation_finished():
-	if player_sprite.animation("attacking"):
-		bat_that_entered.queue_free()
 		
-
-
-func _on_hurt_box_area_entered(area):
-	if area.name == "HitBox":
-		died()
+	
+func _on_attacking_force_area_entered(area):
+	if area.name == "Bat" or "Area2D" in area.name:
+		area.die()

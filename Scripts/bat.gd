@@ -12,8 +12,6 @@ func die():
 	queue_free()	
 
 
-
-func _on_hurt_box_area_entered(area):
-	if area.name == "HitBox": return
-	$HitBox.set_deferred("monitorable", false)
-	queue_free()
+func _on_body_entered(body):
+	if body.name == "Billy" || body.name == "Rosie":
+		body.died()

@@ -9,6 +9,7 @@ signal rosiedie
 @onready var runningmotion = $Running
 @onready var dehorsemotion = $WithoutHorse
 @onready var player_camera = $Camera2D
+@onready var attackingmovement = $AttackingForce
 
 func _physics_process(delta):
 	if is_on_floor() == false:
@@ -34,15 +35,23 @@ func update_animations():
 	if is_on_floor():
 		if Input.is_action_pressed("rolling"):
 			player_sprite.play("dehorse")
+		elif Input.is_action_pressed("attack"):
+			attacking()
 		else:
 			player_sprite.play("running")
 			runningmotion.disabled = false
 			dehorsemotion.disabled = true
 	else:
 		if velocity.y  < 0:
-			player_sprite.play("jumping")
+			if Input.is_action_pressed("attack"):
+				attacking()
+			else:	
+				player_sprite.play("jumping")
 		else:
-			player_sprite.play("fall")
+			if Input.is_action_pressed("attack"):
+				attacking()
+			else:
+				player_sprite.play("die")
 			
 func jump(force):
 	velocity.y = -force
@@ -55,6 +64,13 @@ func _ready():
 
 func attacking():
 	player_sprite.play("attack")
+	attackingmovement.monitorable = true
+	attackingmovement.monitoring = true
+	attackingmovement.visible = true
+	await get_tree().create_timer(0.8).timeout
+	attackingmovement.monitorable = false
+	attackingmovement.monitoring = false
+	attackingmovement.visible = false
 
 func died():
 	emit_signal("rosiedie")
@@ -62,3 +78,8 @@ func died():
 
 func _on_head_box_body_entered(body):
 	velocity.y = max(velocity.y, 0)
+
+
+func _on_attacking_force_area_entered(area):
+	if area.name == "Bat" or "Area2D" in area.name:
+		area.queue_free()

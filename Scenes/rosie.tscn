@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bieaanbwiyqsn"]
+[gd_scene load_steps=44 format=3 uid="uid://bieaanbwiyqsn"]
 
 [ext_resource type="Texture2D" uid="uid://ccqp4yehgomh6" path="res://Assets/Knight_and_Horse/Idle/Knight_idle1.png" id="1_7sqbh"]
 [ext_resource type="Script" path="res://Scripts/rosie.gd" id="1_jvrkv"]
@@ -73,7 +73,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_ifp5i")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -218,7 +218,14 @@ radius = 12.8531
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cks4g"]
 size = Vector2(28.9983, 6.6281)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_373wh"]
+radius = 15.8479
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjhsa"]
+radius = 15.1773
+
 [node name="Rosie" type="CharacterBody2D"]
+position = Vector2(133, 95)
 scale = Vector2(2.96569, 2.96569)
 collision_layer = 2
 collision_mask = 5
@@ -229,7 +236,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wyp6l")
 animation = &"attack"
 autoplay = "default"
-frame_progress = 0.421849
 
 [node name="Running" type="CollisionShape2D" parent="."]
 position = Vector2(0.33719, 8.09254)
@@ -252,4 +258,21 @@ target_position = Vector2(-0.33719, 29.6727)
 position = Vector2(0.674379, -6.06941)
 shape = SubResource("RectangleShape2D_cks4g")
 
+[node name="AttackingForce" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingForce"]
+position = Vector2(12.8132, 7.75536)
+shape = SubResource("CircleShape2D_373wh")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 10.7901)
+shape = SubResource("CircleShape2D_bjhsa")
+
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]
+[connection signal="area_entered" from="AttackingForce" to="." method="_on_attacking_force_area_entered"]

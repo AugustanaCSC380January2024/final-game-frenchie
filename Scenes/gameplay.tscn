@@ -21,7 +21,7 @@ script = ExtResource("1_c26ar")
 position = Vector2(165, 675)
 
 [node name="PlayerPosition" type="Marker2D" parent="."]
-position = Vector2(82, 210)
+position = Vector2(225, 245)
 
 [node name="Spawner" parent="." instance=ExtResource("3_cfydq")]
 
