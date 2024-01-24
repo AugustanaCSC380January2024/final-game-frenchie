@@ -21,6 +21,7 @@ var speed = 150
 func _ready():
 	get_player()
 	player_ins = player.instantiate()
+	player_ins.playerdie.connect(on_player_die)
 	add_child(player_ins)
 	player_ins.position = $PlayerPosition.position
 	randomize()
@@ -79,5 +80,9 @@ func on_clock_claimed():
 
 func _on_player_deathzone_body_entered(body):
 	game_running == false
+	await get_tree().create_timer(1).timeout
+	ui.show_game_over(true)
+
+func on_player_die():
 	await get_tree().create_timer(1).timeout
 	ui.show_game_over(true)

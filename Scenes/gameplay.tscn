@@ -10,7 +10,7 @@
 size = Vector2(94, 644)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pvxe"]
-size = Vector2(2760, 267)
+size = Vector2(3165, 454.5)
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_c26ar")
@@ -42,7 +42,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeathzone"]
-position = Vector2(954, 1029.5)
+position = Vector2(968.5, 1237.75)
 shape = SubResource("RectangleShape2D_7pvxe")
 
 [connection signal="bat_spawned" from="Spawner" to="." method="_on_spawner_bat_spawned"]

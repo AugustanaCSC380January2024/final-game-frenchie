@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var attackingmovement = $AttackingForce
 @onready var gameoverscreen = $UILayer
 
-signal billydie
+signal playerdie
 
 func _physics_process(delta):
 	if is_on_floor() == false:
@@ -75,9 +75,8 @@ func attacking():
 	
 	
 func died():
-	emit_signal("billydie")
+	emit_signal("playerdie")
 	queue_free()
-	gameoverscreen.show_game_over(true)
 	print("Game Over")
 func _ready():
 	pass

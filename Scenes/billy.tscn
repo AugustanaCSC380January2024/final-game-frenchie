@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cprl4r6gokb7p"]
+[gd_scene load_steps=51 format=3 uid="uid://cprl4r6gokb7p"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_hntgj"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://e8viikdtlnew" path="res://Assets/Knight Hero Platfomer/Run.png" id="2_toahi"]
 [ext_resource type="Texture2D" uid="uid://c6j5sheucnx5y" path="res://Assets/Knight Hero Platfomer/Jump.png" id="3_e200w"]
 [ext_resource type="Texture2D" uid="uid://dli6xdqteunso" path="res://Assets/Knight Hero Platfomer/Roll.png" id="4_81cxi"]
-[ext_resource type="PackedScene" uid="uid://bw38f473b2rn8" path="res://Scenes/ui_layer.tscn" id="7_baods"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77lkl"]
 atlas = ExtResource("2_stqb7")
@@ -378,8 +377,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(11.9781, 45.9394)
 shape = SubResource("CircleShape2D_oqwko")
-
-[node name="UILayer" parent="." instance=ExtResource("7_baods")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]

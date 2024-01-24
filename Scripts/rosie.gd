@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var gravity = 1000
 @export var jump_force = 600
 
-signal rosiedie
+signal playerdie
 @onready var ray = $RayCast2D
 @onready var player_sprite = $AnimatedSprite2D
 @onready var runningmotion = $Running
@@ -73,7 +73,7 @@ func attacking():
 	attackingmovement.visible = false
 
 func died():
-	emit_signal("rosiedie")
+	emit_signal("playerdie")
 	queue_free()
 
 func _on_head_box_body_entered(body):
