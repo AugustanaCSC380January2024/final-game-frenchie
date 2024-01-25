@@ -47,7 +47,7 @@ text = "GAME OVER
 "
 label_settings = SubResource("LabelSettings_gr4nw")
 
-[node name="Label" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
