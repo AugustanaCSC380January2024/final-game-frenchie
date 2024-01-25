@@ -77,7 +77,7 @@ func attacking():
 func died():
 	emit_signal("playerdie")
 	queue_free()
-	print("Game Over")
+	
 func _ready():
 	pass
 

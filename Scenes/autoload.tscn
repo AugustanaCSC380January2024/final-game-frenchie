@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bueqkxi0nd17d"]
+
+[ext_resource type="AudioStream" uid="uid://bnteawhhtb63a" path="res://Assets/Medieval Music - Medieval England [TubeRipper.com].ogg" id="1_25sqq"]
+
+[node name="Autoload" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_25sqq")

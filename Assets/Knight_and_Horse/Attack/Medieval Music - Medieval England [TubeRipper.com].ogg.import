@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4msfow8nwr26"
+path="res://.godot/imported/Medieval Music - Medieval England [TubeRipper.com].ogg-9ba49d3a641a9f8e77832f523e6f5999.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Knight_and_Horse/Attack/Medieval Music - Medieval England [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Medieval Music - Medieval England [TubeRipper.com].ogg-9ba49d3a641a9f8e77832f523e6f5999.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
