@@ -54,6 +54,7 @@ func update_animations():
 				player_sprite.play("die")
 			
 func jump(force):
+	Music.play_sfx("jump")
 	velocity.y = -force
 	
 func rolling():
@@ -63,6 +64,7 @@ func _ready():
 	pass
 
 func attacking():
+	Music.play_sfx("rosieattack")
 	player_sprite.play("attack")
 	attackingmovement.monitorable = true
 	attackingmovement.monitoring = true
@@ -82,4 +84,5 @@ func _on_head_box_body_entered(body):
 
 func _on_attacking_force_area_entered(area):
 	if area.name == "Bat" or "Area2D" in area.name:
+		Music.play_sfx("batdeath")
 		area.queue_free()

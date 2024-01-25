@@ -14,4 +14,5 @@ func die():
 
 func _on_body_entered(body):
 	if body.name == "Billy" || body.name == "Rosie":
+		Music.play_sfx("death")
 		body.died()

@@ -3,16 +3,20 @@ extends Node2D
 var currently_selected_char 
 @onready var rosie = $Rosie
 @onready var billy = $Billy
+@onready var billyplayer = $BillyPlayer
+@onready var rosieplayer = $RosiePlayer
 
 func _on_rosie_2_pressed():
 	rosie.play("Rosie")
 	billy.stop()
+	rosieplayer.play()
 	currently_selected_char = "Rosie"
 
 
 func _on_billy_2_pressed():
 	billy.play("Billy")
 	rosie.stop()
+	billyplayer.play()
 	currently_selected_char = "Billy"
 
 

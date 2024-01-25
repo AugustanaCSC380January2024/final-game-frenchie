@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://u5djneg0wfty"]
+[gd_scene load_steps=38 format=3 uid="uid://u5djneg0wfty"]
 
 [ext_resource type="Script" path="res://Scripts/character_selection.gd" id="1_6ttkp"]
 [ext_resource type="FontFile" uid="uid://bcgwj1nxqiawx" path="res://Assets/Fonts/Canterbury.ttf" id="1_pv5e4"]
@@ -14,6 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://74rxq51y0i1m" path="res://Assets/Knight Hero Platfomer/Sword Raise.png" id="11_ovm4g"]
 [ext_resource type="PackedScene" uid="uid://co4hymab4l3w2" path="res://Scenes/background_1.tscn" id="12_5b0lq"]
 [ext_resource type="FontFile" uid="uid://brm5p8fd764cb" path="res://Assets/Fonts/BLKCHCRY.TTF" id="12_htnuk"]
+[ext_resource type="AudioStream" uid="uid://yg8h1hol61x3" path="res://Assets/Sounds/rosie1.wav" id="15_lujr4"]
+[ext_resource type="AudioStream" uid="uid://beh31sjwho6i8" path="res://Assets/Sounds/rosie2.wav" id="16_wjffb"]
+[ext_resource type="AudioStream" uid="uid://5ea13aq4ifhh" path="res://Assets/Sounds/rosie3.wav" id="17_gcg0w"]
+[ext_resource type="AudioStream" uid="uid://ccsh47s5yuaim" path="res://Assets/Sounds/billy1.wav" id="18_45qdp"]
+[ext_resource type="AudioStream" uid="uid://cd5t05judobus" path="res://Assets/Sounds/billy2.wav" id="19_ggotd"]
+[ext_resource type="AudioStream" uid="uid://c6kmdl1x1555w" path="res://Assets/Sounds/billy3.wav" id="20_nejcl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d3w8v"]
 font = ExtResource("1_pv5e4")
@@ -148,6 +154,25 @@ default_font_size = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vol2r"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bbqbt"]
+streams_count = 3
+stream_0/stream = ExtResource("15_lujr4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("16_wjffb")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("17_gcg0w")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_il24v"]
+random_volume_offset_db = 1.0
+streams_count = 3
+stream_0/stream = ExtResource("18_45qdp")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("19_ggotd")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("20_nejcl")
+stream_2/weight = 1.0
+
 [node name="CharacterSelection" type="Node2D"]
 script = ExtResource("1_6ttkp")
 
@@ -234,6 +259,12 @@ alignment = 0
 [node name="Background1" parent="." instance=ExtResource("12_5b0lq")]
 
 [node name="Characters" type="Node" parent="."]
+
+[node name="RosiePlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_bbqbt")
+
+[node name="BillyPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_il24v")
 
 [connection signal="pressed" from="Rosie2" to="." method="_on_rosie_2_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
