@@ -2,7 +2,7 @@ extends Node2D
 
 var player
 var score = 0
-var game_running = true
+var game_running: bool
 var player_ins
 @onready var hud = $UILayer/HUD
 @onready var ui = $UILayer
@@ -19,6 +19,7 @@ var segments = [
 var speed = 150
 
 func _ready():
+	game_running = true
 	get_player()
 	player_ins = player.instantiate()
 	player_ins.playerdie.connect(on_player_die)
@@ -48,7 +49,7 @@ func spawn_inst(x, y):
 	speed += 5
 
 func _process(delta):
-	if game_running == true:
+	if game_running:
 		score+= 1
 		hud.set_score(score)
 	else:
@@ -79,10 +80,11 @@ func on_clock_claimed():
 
 
 func _on_player_deathzone_body_entered(body):
-	game_running == false
+	game_running = false
 	await get_tree().create_timer(1).timeout
 	ui.show_game_over(true)
 
 func on_player_die():
+	game_running = false
 	await get_tree().create_timer(1).timeout
 	ui.show_game_over(true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://u5djneg0wfty"]
+[gd_scene load_steps=40 format=3 uid="uid://u5djneg0wfty"]
 
 [ext_resource type="Script" path="res://Scripts/character_selection.gd" id="1_6ttkp"]
 [ext_resource type="FontFile" uid="uid://bcgwj1nxqiawx" path="res://Assets/Fonts/Canterbury.ttf" id="1_pv5e4"]
@@ -173,6 +173,15 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("20_nejcl")
 stream_2/weight = 1.0
 
+[sub_resource type="Gradient" id="Gradient_gjmnw"]
+offsets = PackedFloat32Array(0, 0.748387)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr5bl"]
+gradient = SubResource("Gradient_gjmnw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="CharacterSelection" type="Node2D"]
 script = ExtResource("1_6ttkp")
 
@@ -265,6 +274,22 @@ stream = SubResource("AudioStreamRandomizer_bbqbt")
 
 [node name="BillyPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_il24v")
+
+[node name="RosieLight" type="PointLight2D" parent="."]
+position = Vector2(244, 384)
+scale = Vector2(3.4375, 3.4375)
+enabled = false
+color = Color(1, 0.839216, 0.494118, 1)
+texture = SubResource("GradientTexture2D_pr5bl")
+texture_scale = 0.6
+
+[node name="BillyLight" type="PointLight2D" parent="."]
+position = Vector2(903, 373)
+scale = Vector2(3.4375, 3.4375)
+enabled = false
+color = Color(0.776471, 0.764706, 0.717647, 1)
+energy = 0.28
+texture = SubResource("GradientTexture2D_pr5bl")
 
 [connection signal="pressed" from="Rosie2" to="." method="_on_rosie_2_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

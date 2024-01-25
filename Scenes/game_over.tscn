@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c11l4jlbbj63i"]
+[gd_scene load_steps=6 format=3 uid="uid://c11l4jlbbj63i"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_ldmyt"]
 [ext_resource type="FontFile" uid="uid://brm5p8fd764cb" path="res://Assets/Fonts/BLKCHCRY.TTF" id="2_wtxnw"]
@@ -10,6 +10,10 @@ font_size = 80
 [sub_resource type="LabelSettings" id="LabelSettings_vrc0h"]
 font = ExtResource("2_wtxnw")
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvwpd"]
+font = ExtResource("2_wtxnw")
+font_size = 38
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -50,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -295.0
+offset_top = -56.0
+offset_right = 295.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "YOUR SCORE: 9999
@@ -77,5 +81,22 @@ theme_override_fonts/font = ExtResource("2_wtxnw")
 theme_override_font_sizes/font_size = 35
 text = "BACK TO START
 "
+
+[node name="HiScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = 45.0
+offset_right = 193.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HIGH SCORE: 9999
+"
+label_settings = SubResource("LabelSettings_pvwpd")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
