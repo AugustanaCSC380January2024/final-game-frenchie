@@ -42,6 +42,7 @@ func save_game():
 	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
 	save_file.store_32(highscore)
 	
+	
 func get_player():
 	match Game.character_play:
 		"Billy":
