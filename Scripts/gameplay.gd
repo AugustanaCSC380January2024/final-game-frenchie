@@ -7,6 +7,8 @@ var player_ins
 @onready var hud = $UILayer/HUD
 @onready var ui = $UILayer
 @onready var gos = $UILayer/GameOver
+var bossscene = preload("res://Scenes/boss_1.tscn")
+
 
 var segments = [
 	preload("res://Scenes/shape_1.tscn"),
@@ -15,7 +17,7 @@ var segments = [
 	preload("res://Scenes/shape_4.tscn"),
 	preload("res://Scenes/shape_5.tscn"),
 	preload("res://Scenes/shape6.tscn"),
-	preload("res://Scenes/shape_7.tscn")
+	preload("res://Scenes/shape_7.tscn"),
 	]
 var speed = 150
 var highscore
@@ -37,7 +39,6 @@ func _ready():
 	randomize()
 	spawn_inst(0, 0)
 	spawn_inst(1024, 0)
-	
 func save_game():
 	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
 	save_file.store_32(highscore)
@@ -54,6 +55,7 @@ func _physics_process(delta):
 		area.position.x -= speed*delta
 		if area.position.x < -1050:
 			spawn_inst(area.position.x + 2048, 0)
+			print(score)
 			area.queue_free()
 		
 func spawn_inst(x, y):
@@ -61,6 +63,12 @@ func spawn_inst(x, y):
 	inst.position = Vector2(x, y)
 	$Areas.add_child(inst)
 	speed += 5
+
+func spawn_boss(x, y):
+	var boss_ins = bossscene.instantiate()
+	boss_ins.position = Vector2(x, y)
+	$Areas.add_child(boss_ins)
+	
 
 func _process(delta):
 	if game_running:

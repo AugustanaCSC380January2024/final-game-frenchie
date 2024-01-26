@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 Game="*res://Scripts/game.gd"
 Music="*res://Scenes/music.tscn"
 
+[editor]
+
+movie_writer/movie_file="D:/trailer.avi"
+movie_writer/fps=80
+
 [input]
 
 jump={
