@@ -17,7 +17,7 @@ var segments = [
 	preload("res://Scenes/shape_4.tscn"),
 	preload("res://Scenes/shape_5.tscn"),
 	preload("res://Scenes/shape6.tscn"),
-	preload("res://Scenes/shape_7.tscn"),
+	preload("res://Scenes/shape_7.tscn")
 	]
 var speed = 150
 var highscore
@@ -55,7 +55,7 @@ func _physics_process(delta):
 		area.position.x -= speed*delta
 		if area.position.x < -1050:
 			spawn_inst(area.position.x + 2048, 0)
-			print(score)
+			print(score % 3)
 			area.queue_free()
 		
 func spawn_inst(x, y):

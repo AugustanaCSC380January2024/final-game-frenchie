@@ -10,6 +10,7 @@ signal playerdie
 @onready var dehorsemotion = $WithoutHorse
 @onready var player_camera = $Camera2D
 @onready var attackingmovement = $AttackingForce
+@onready var headbox = $HeadBox
 
 func _physics_process(delta):
 	if is_on_floor() == false:
@@ -35,23 +36,44 @@ func update_animations():
 	if is_on_floor():
 		if Input.is_action_pressed("rolling"):
 			player_sprite.play("dehorse")
+			headbox.monitorable = false
+			headbox.monitoring = false
+			headbox.visible = false
 		elif Input.is_action_pressed("attack"):
 			attacking()
+			headbox.monitorable = true
+			headbox.monitoring = true
+			headbox.visible = true
 		else:
 			player_sprite.play("running")
 			runningmotion.disabled = false
 			dehorsemotion.disabled = true
+			headbox.monitorable = true
+			headbox.monitoring = true
+			headbox.visible = true
 	else:
 		if velocity.y  < 0:
 			if Input.is_action_pressed("attack"):
 				attacking()
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			else:	
 				player_sprite.play("jumping")
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 		else:
 			if Input.is_action_pressed("attack"):
 				attacking()
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			else:
 				player_sprite.play("die")
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			
 func jump(force):
 	Music.play_sfx("jump")
@@ -60,6 +82,10 @@ func jump(force):
 func rolling():
 	runningmotion.disabled = true
 	dehorsemotion.disabled = false
+	headbox.monitorable = false
+	headbox.monitoring = false
+	headbox.visible = false
+	
 func _ready():
 	pass
 

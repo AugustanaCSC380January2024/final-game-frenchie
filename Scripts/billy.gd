@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var player_camera = $Camera2D
 @onready var attackingmovement = $AttackingForce
 @onready var gameoverscreen = $UILayer
+@onready var headbox = $HeadBox
 
 signal playerdie
 
@@ -38,23 +39,44 @@ func update_animations():
 	if is_on_floor():
 		if Input.is_action_pressed("rolling"):
 			player_sprite.play("rolling")
+			headbox.monitorable = false
+			headbox.monitoring = false
+			headbox.visible = false
 		elif Input.is_action_pressed("attack"):
 			attacking()
+			headbox.monitorable = true
+			headbox.monitoring = true
+			headbox.visible = true
 		else:
 			player_sprite.play("running")
 			runningmotion.disabled = false
 			rollingmotion.disabled = true
+			headbox.monitorable = true
+			headbox.monitoring = true
+			headbox.visible = true
 	else:
 		if velocity.y  < 0:
 			if (Input.is_action_pressed("attack")):
 				attacking()
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			else:
 				player_sprite.play("jump")
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 		else:
 			if (Input.is_action_pressed("attack")):
 				attacking()
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			else:
 				player_sprite.play("fall")
+				headbox.monitorable = true
+				headbox.monitoring = true
+				headbox.visible = true
 			
 func jump(force):
 	Music.play_sfx("jump")
@@ -63,6 +85,9 @@ func jump(force):
 func rolling():
 	runningmotion.disabled = true
 	rollingmotion.disabled = false
+	headbox.monitorable = false
+	headbox.monitoring = false
+	headbox.visible = false
 	
 func attacking():
 	Music.play_sfx("billyattack")
