@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8p8hj172wncf"]
+[gd_scene load_steps=12 format=3 uid="uid://b8p8hj172wncf"]
 
 [ext_resource type="Script" path="res://Scripts/BossFire.gd" id="1_8yfdq"]
 [ext_resource type="Texture2D" uid="uid://ct8e8yismd4i0" path="res://Assets/individual sprites/01_demon_idle/demon_idle_1.png" id="1_d663t"]
@@ -41,14 +41,10 @@ size = Vector2(169.5, 208.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6osk"]
 size = Vector2(250, 44)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7br5a"]
-size = Vector2(617, 44)
-
 [node name="BossScene" type="StaticBody2D"]
-position = Vector2(725, -320)
 
 [node name="BossFire" type="CharacterBody2D" parent="."]
-position = Vector2(5, 51)
+position = Vector2(762.5, -273)
 script = ExtResource("1_8yfdq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BossFire"]
@@ -64,28 +60,10 @@ position = Vector2(174.25, 168.75)
 shape = SubResource("RectangleShape2D_56gws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(181, 348)
+position = Vector2(1388, 767)
 shape = SubResource("RectangleShape2D_n6osk")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 position = Vector2(11, 17)
 scale = Vector2(1.55682, 1)
-texture = ExtResource("7_itxx2")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(181, 348)
-shape = SubResource("RectangleShape2D_n6osk")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D2"]
-position = Vector2(11, 17)
-scale = Vector2(1.55682, 1)
-texture = ExtResource("7_itxx2")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-373.5, 343)
-shape = SubResource("RectangleShape2D_7br5a")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D3"]
-position = Vector2(-1.49997, 17)
-scale = Vector2(3.47727, 1)
 texture = ExtResource("7_itxx2")

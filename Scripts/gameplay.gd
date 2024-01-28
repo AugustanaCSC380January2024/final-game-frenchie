@@ -53,9 +53,11 @@ func get_player():
 func _physics_process(delta):
 	for area in $Areas.get_children():
 		area.position.x -= speed*delta
-		if area.position.x < -1050:
+		if (area.position.x < -1060):
 			spawn_inst(area.position.x + 2048, 0)
-			print(score % 3)
+			print(speed)
+			if (speed == 170):
+				spawn_boss(area.position.x + 2048, 0)
 			area.queue_free()
 		
 func spawn_inst(x, y):
