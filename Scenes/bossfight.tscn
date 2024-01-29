@@ -1,0 +1,261 @@
+[gd_scene load_steps=14 format=3 uid="uid://16f7b4va6so4"]
+
+[ext_resource type="Script" path="res://Scripts/bossfight.gd" id="1_nysfd"]
+[ext_resource type="Texture2D" uid="uid://3y4tg7l7cjyi" path="res://bossfigght.png" id="1_vhsv5"]
+[ext_resource type="Resource" uid="uid://b6u0hshbb3aah" path="res://src/Mikanos.tres" id="2_2rafw"]
+[ext_resource type="FontFile" uid="uid://d12hkemmsulm7" path="res://Assets/Fonts/nintendo-nes-font.ttf" id="3_levhm"]
+[ext_resource type="FontFile" uid="uid://do0lsr3w0pve2" path="res://Assets/Fonts/TradeWinds-Regular.ttf" id="3_msquv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ddn"]
+bg_color = Color(0.760784, 0.262745, 0.290196, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhsns"]
+bg_color = Color(0, 0, 0, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au8b7"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r47gk"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl18b"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_vsrjn"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-16, -18), Vector2(23, 18), Vector2(-16, 24), Vector2(25, -19), Vector2(-14, -15), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j8pvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4y6y"]
+_data = {
+"RESET": SubResource("Animation_j8pvl"),
+"shake": SubResource("Animation_vsrjn")
+}
+
+[node name="Bossfight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nysfd")
+enemy = ExtResource("2_2rafw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -324.0
+offset_right = 324.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vhsv5")
+
+[node name="BossContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 54.0
+offset_right = -288.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BossContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_p4ddn")
+step = 1.0
+value = 50.0
+
+[node name="Label" type="Label" parent="BossContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_levhm")
+theme_override_font_sizes/font_size = 24
+text = "MIKANOS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bhsns")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_levhm")
+theme_override_font_sizes/font_size = 40
+text = "PLAYER"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_p4ddn")
+step = 1.0
+value = 50.0
+
+[node name="ActionPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 253.0
+offset_bottom = -105.0
+grow_vertical = 2
+
+[node name="Actions" type="VBoxContainer" parent="ActionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_levhm")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_au8b7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r47gk")
+text = "ATTACK
+"
+
+[node name="Defend" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_levhm")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_au8b7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r47gk")
+text = "DEFEND
+"
+
+[node name="Forfeit" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_levhm")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_au8b7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r47gk")
+text = "FORFEIT
+"
+
+[node name="TextBox" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 29.0
+offset_top = 20.0
+offset_right = -29.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl18b")
+
+[node name="Text" type="Label" parent="TextBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_msquv")
+theme_override_font_sizes/font_size = 55
+text = "MIKANOS appears!"
+
+[node name="Tick" type="Label" parent="TextBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -59.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_msquv")
+theme_override_font_sizes/font_size = 40
+text = ">"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p4y6y")
+}
+
+[connection signal="pressed" from="ActionPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionPanel/Actions/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="ActionPanel/Actions/Forfeit" to="." method="_on_forfeit_pressed"]

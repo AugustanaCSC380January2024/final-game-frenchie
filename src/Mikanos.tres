@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6u0hshbb3aah"]
+
+[ext_resource type="Script" path="res://src/BaseEnemy.gd" id="1_m6nhl"]
+
+[resource]
+script = ExtResource("1_m6nhl")
+name = "Mikanos"
+health = 45
+damage = 15
