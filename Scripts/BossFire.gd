@@ -5,3 +5,7 @@ extends CharacterBody2D
 func _physics_process(delta):
 	velocity.y = delta * gravity
 	move_and_slide()
+
+
+func _on_fight_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/bossfight.tscn")

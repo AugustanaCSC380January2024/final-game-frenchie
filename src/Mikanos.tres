@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_m6nhl")
 name = "Mikanos"
-health = 45
+health = 100
 damage = 15

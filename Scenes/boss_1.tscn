@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8p8hj172wncf"]
+[gd_scene load_steps=13 format=3 uid="uid://b8p8hj172wncf"]
 
 [ext_resource type="Script" path="res://Scripts/BossFire.gd" id="1_8yfdq"]
 [ext_resource type="Texture2D" uid="uid://ct8e8yismd4i0" path="res://Assets/individual sprites/01_demon_idle/demon_idle_1.png" id="1_d663t"]
@@ -41,6 +41,9 @@ size = Vector2(169.5, 208.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6osk"]
 size = Vector2(250, 44)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lsk"]
+size = Vector2(172.5, 203.5)
+
 [node name="BossScene" type="StaticBody2D"]
 
 [node name="BossFire" type="CharacterBody2D" parent="."]
@@ -67,3 +70,11 @@ shape = SubResource("RectangleShape2D_n6osk")
 position = Vector2(11, 17)
 scale = Vector2(1.55682, 1)
 texture = ExtResource("7_itxx2")
+
+[node name="Fight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fight"]
+position = Vector2(939.75, -107.75)
+shape = SubResource("RectangleShape2D_c3lsk")
+
+[connection signal="body_entered" from="Fight" to="BossFire" method="_on_fight_body_entered"]
