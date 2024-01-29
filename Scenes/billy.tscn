@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cprl4r6gokb7p"]
+[gd_scene load_steps=56 format=3 uid="uid://cprl4r6gokb7p"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_hntgj"]
 [ext_resource type="Texture2D" uid="uid://bvhkybu3gnno6" path="res://Assets/Knight Hero Platfomer/Fall.png" id="2_slrbv"]
@@ -322,6 +322,33 @@ height = 21.6
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqwko"]
 radius = 8.89571
 
+[sub_resource type="Gradient" id="Gradient_7cvbp"]
+colors = PackedColorArray(0.992157, 0.45098, 0.458824, 0.505882, 0.730586, 0.0172206, 4.81307e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fh5wi"]
+gradient = SubResource("Gradient_7cvbp")
+
+[sub_resource type="Curve" id="Curve_v48tq"]
+_data = [Vector2(0.0331126, 0.406593), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dvgwi"]
+curve = SubResource("Curve_v48tq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8ejq"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 1)
+spread = 12.64
+initial_velocity_min = -100.0
+initial_velocity_max = -100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_dvgwi")
+color_ramp = SubResource("GradientTexture1D_fh5wi")
+
 [node name="Billy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 collision_layer = 2
@@ -377,6 +404,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(11.9781, 45.9394)
 shape = SubResource("CircleShape2D_oqwko")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(13.2, 67.8)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_w8ejq")
+lifetime = 0.2
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]

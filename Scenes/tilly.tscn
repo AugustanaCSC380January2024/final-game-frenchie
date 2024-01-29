@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bieaanbwiyqsn"]
+[gd_scene load_steps=49 format=3 uid="uid://bieaanbwiyqsn"]
 
 [ext_resource type="Script" path="res://Scripts/rosie.gd" id="1_2bm4h"]
 [ext_resource type="Texture2D" uid="uid://dib2476vmdddc" path="res://Assets/Knight_and_Horse/Attack/Knight_attack1.png" id="2_mugo8"]
@@ -224,6 +224,33 @@ radius = 15.8479
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjhsa"]
 radius = 15.1773
 
+[sub_resource type="Gradient" id="Gradient_dsqgo"]
+colors = PackedColorArray(0.91, 0.515667, 0, 0.678431, 0.714317, 0.158873, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8grpj"]
+gradient = SubResource("Gradient_dsqgo")
+
+[sub_resource type="Curve" id="Curve_qkuj3"]
+_data = [Vector2(0, 0.274725), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_evews"]
+curve = SubResource("Curve_qkuj3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_01oqh"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 7, 1)
+spread = 16.686
+initial_velocity_min = -100.0
+initial_velocity_max = -100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 6.0
+scale_max = 7.0
+scale_curve = SubResource("CurveTexture_evews")
+color_ramp = SubResource("GradientTexture1D_8grpj")
+
 [node name="Tilly" type="CharacterBody2D"]
 position = Vector2(133, 95)
 scale = Vector2(2.96569, 2.96569)
@@ -273,6 +300,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 10.7901)
 shape = SubResource("CircleShape2D_bjhsa")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-5.39503, 10.7901)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_01oqh")
+lifetime = 0.3
 
 [connection signal="body_entered" from="HeadBox" to="." method="_on_head_box_body_entered"]
 [connection signal="area_entered" from="AttackingForce" to="." method="_on_attacking_force_area_entered"]

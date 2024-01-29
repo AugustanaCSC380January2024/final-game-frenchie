@@ -24,10 +24,10 @@ position = Vector2(939, -239)
 shape = SubResource("RectangleShape2D_ayupn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 51.0
-offset_top = -21.0
-offset_right = 1018.0
-offset_bottom = 40.0
+offset_left = 55.0
+offset_top = -20.0
+offset_right = 1013.0
+offset_bottom = 43.0
 color = Color(0.996078, 0.890196, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]

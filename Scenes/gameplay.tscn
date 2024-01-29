@@ -258,11 +258,11 @@ shape = SubResource("RectangleShape2D_0ehx6")
 
 [node name="Death" type="AnimatedSprite2D" parent="Deathzone"]
 texture_filter = 1
-position = Vector2(-488, 408)
+position = Vector2(-504, 427)
 scale = Vector2(9.5, 9.5)
 sprite_frames = SubResource("SpriteFrames_n307w")
 autoplay = "default"
-frame_progress = 0.00392482
+frame_progress = 0.215732
 
 [node name="UILayer" parent="." instance=ExtResource("5_57sv3")]
 
@@ -280,7 +280,7 @@ position = Vector2(-442, 922)
 scale = Vector2(3.15278, 3.15278)
 sprite_frames = SubResource("SpriteFrames_d255d")
 autoplay = "default"
-frame_progress = 0.265909
+frame_progress = 0.477717
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerDeathzone"]
 position = Vector2(-181, 956)
@@ -441,7 +441,7 @@ position = Vector2(-378, 854)
 scale = Vector2(3.15278, 3.56944)
 sprite_frames = SubResource("SpriteFrames_d255d")
 autoplay = "default"
-frame_progress = 0.236892
+frame_progress = 0.448699
 
 [connection signal="bat_spawned" from="Spawner" to="." method="_on_spawner_bat_spawned"]
 [connection signal="clock_spawned" from="SpawnerClock" to="." method="_on_spawner_clock_clock_spawned"]

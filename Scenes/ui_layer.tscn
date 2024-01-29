@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw38f473b2rn8"]
+[gd_scene load_steps=5 format=3 uid="uid://bw38f473b2rn8"]
 
 [ext_resource type="Script" path="res://Scripts/ui_layer.gd" id="1_dkn07"]
 [ext_resource type="PackedScene" uid="uid://11ikb2rc5xa0" path="res://Scenes/hud.tscn" id="1_j2pev"]
 [ext_resource type="PackedScene" uid="uid://c11l4jlbbj63i" path="res://Scenes/game_over.tscn" id="3_nvpdw"]
+[ext_resource type="PackedScene" uid="uid://16f7b4va6so4" path="res://Scenes/bossfight.tscn" id="4_o6tdd"]
 
 [node name="UILayer" type="CanvasLayer"]
 script = ExtResource("1_dkn07")
@@ -10,4 +11,7 @@ script = ExtResource("1_dkn07")
 [node name="HUD" parent="." instance=ExtResource("1_j2pev")]
 
 [node name="GameOver" parent="." instance=ExtResource("3_nvpdw")]
+visible = false
+
+[node name="Bossfight" parent="." instance=ExtResource("4_o6tdd")]
 visible = false

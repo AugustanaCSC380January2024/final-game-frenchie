@@ -7,8 +7,11 @@ var player_ins
 @onready var hud = $UILayer/HUD
 @onready var ui = $UILayer
 @onready var gos = $UILayer/GameOver
+@onready var bossfightscn = $Bossfight
+@onready var bosscamera = $Bossfight/Camera2D
 var bossscene = preload("res://Scenes/boss_1.tscn")
 
+var bossfightscene = preload("res://Scenes/bossfight.tscn")
 
 var segments = [
 	preload("res://Scenes/shape_1.tscn"),
@@ -56,7 +59,7 @@ func _physics_process(delta):
 		if (area.position.x < -1060):
 			spawn_inst(area.position.x + 2048, 0)
 			print(speed)
-			if (speed == 170):
+			if (speed % 165 == 0):
 				spawn_boss(area.position.x + 2048, 0)
 			area.queue_free()
 		
@@ -68,7 +71,8 @@ func spawn_inst(x, y):
 
 func spawn_boss(x, y):
 	var boss_ins = bossscene.instantiate()
-	boss_ins.position = Vector2(x, y)
+	boss_ins.get_node("BossFire").boss_showup.connect(_boss_encounter)
+	boss_ins.position = Vector2(x, y - 800)
 	$Areas.add_child(boss_ins)
 	
 
@@ -114,3 +118,8 @@ func on_player_die():
 	game_running = false
 	await get_tree().create_timer(1).timeout
 	ui.show_game_over(true)
+	
+func _boss_encounter():
+	ui.show_boss_scene(true)
+	get_tree().paused = true
+	

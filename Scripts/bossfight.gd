@@ -3,7 +3,6 @@ extends Control
 @onready var player_progress_bar = $PlayerPanel/PlayerData/ProgressBar
 @onready var boss_progress_bar = $BossContainer/ProgressBar
 
-
 @export var enemy: Resource = null
 
 var current_player_health = 0
@@ -35,6 +34,8 @@ func _on_forfeit_pressed():
 	Music.play_sfx("forfeit")
 	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
+	self.visible = false
+	get_parent().paused = false
 	
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
@@ -91,7 +92,7 @@ func enemy_turn():
 		await get_tree().create_timer(2).timeout
 		display_text("I am too young... too too young...")
 		await get_tree().create_timer(2).timeout
-		get_tree().quit()
+		
 
 
 func _on_defend_pressed():

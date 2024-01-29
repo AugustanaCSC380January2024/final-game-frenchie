@@ -267,6 +267,7 @@ text = ">"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+enabled = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
