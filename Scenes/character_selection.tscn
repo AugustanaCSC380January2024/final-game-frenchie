@@ -66,7 +66,7 @@ animations = [{
 "texture": ExtResource("2_007ma")
 }],
 "loop": true,
-"name": &"Rosie",
+"name": &"Tilly",
 "speed": 10.0
 }]
 
@@ -150,7 +150,7 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_etqfp"]
 default_font = ExtResource("12_htnuk")
-default_font_size = 50
+default_font_size = 65
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vol2r"]
 
@@ -202,13 +202,12 @@ label_settings = SubResource("LabelSettings_d3w8v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Rosie" type="AnimatedSprite2D" parent="."]
+[node name="Tilly" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(243, 309)
 scale = Vector2(6.66345, 6.76241)
 sprite_frames = SubResource("SpriteFrames_5nya4")
-animation = &"Rosie"
-frame_progress = 0.464045
+animation = &"Tilly"
 
 [node name="Billy" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -226,7 +225,7 @@ offset_right = 354.0
 offset_bottom = 566.0
 size_flags_stretch_ratio = 0.0
 theme = SubResource("Theme_etqfp")
-text = "ROSIE
+text = "Tilly
 "
 
 [node name="Play" type="Button" parent="."]
@@ -261,7 +260,8 @@ offset_top = 492.0
 offset_right = 987.0
 offset_bottom = 563.0
 theme = SubResource("Theme_etqfp")
-text = "BILLY
+theme_override_font_sizes/font_size = 65
+text = "Billy
 "
 alignment = 0
 
@@ -275,7 +275,7 @@ stream = SubResource("AudioStreamRandomizer_bbqbt")
 [node name="BillyPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_il24v")
 
-[node name="RosieLight" type="PointLight2D" parent="."]
+[node name="Light1" type="PointLight2D" parent="."]
 position = Vector2(244, 384)
 scale = Vector2(3.4375, 3.4375)
 enabled = false
@@ -283,7 +283,7 @@ color = Color(1, 0.839216, 0.494118, 1)
 texture = SubResource("GradientTexture2D_pr5bl")
 texture_scale = 0.6
 
-[node name="BillyLight" type="PointLight2D" parent="."]
+[node name="Light2" type="PointLight2D" parent="."]
 position = Vector2(903, 373)
 scale = Vector2(3.4375, 3.4375)
 enabled = false

@@ -1,16 +1,158 @@
-[gd_scene load_steps=8 format=3 uid="uid://boyg4kxe6bwky"]
+[gd_scene load_steps=29 format=3 uid="uid://boyg4kxe6bwky"]
 
 [ext_resource type="Script" path="res://Scripts/gameplay.gd" id="1_c26ar"]
 [ext_resource type="PackedScene" uid="uid://bywgrtw1g8jf4" path="res://Scenes/spawner.tscn" id="3_cfydq"]
 [ext_resource type="PackedScene" uid="uid://btfob71ldypov" path="res://Scenes/background_2.tscn" id="3_xm6o3"]
 [ext_resource type="PackedScene" uid="uid://bw38f473b2rn8" path="res://Scenes/ui_layer.tscn" id="5_57sv3"]
 [ext_resource type="PackedScene" uid="uid://bvfegj1xqqhi7" path="res://Scenes/spawner_clock.tscn" id="5_xpynr"]
+[ext_resource type="Texture2D" uid="uid://dj4jbkbsvdtd5" path="res://Assets/fireandcloud/Particle FX 1.0/Poison Cloud-SpriteSheet.png" id="6_2cs1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ehx6"]
 size = Vector2(94, 644)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pvxe"]
 size = Vector2(3165, 454.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uihyi"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeleo"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhvwd"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo8dq"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpkp"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(0, 144, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbueg"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(144, 144, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi3ub"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(288, 144, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmv7e"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(432, 144, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aanki"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(0, 288, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5bg7"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(144, 288, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipw8a"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(288, 288, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb618"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(432, 288, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5e5"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(0, 432, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt467"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(144, 432, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtjit"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(288, 432, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2us3a"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(432, 432, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdgpv"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(0, 576, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fla5q"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(144, 576, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipe4l"]
+atlas = ExtResource("6_2cs1s")
+region = Rect2(288, 576, 144, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d255d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uihyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeleo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhvwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo8dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbueg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi3ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmv7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aanki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5bg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipw8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb618")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe5e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt467")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtjit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2us3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdgpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fla5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipe4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_c26ar")
@@ -38,12 +180,181 @@ shape = SubResource("RectangleShape2D_0ehx6")
 [node name="UILayer" parent="." instance=ExtResource("5_57sv3")]
 
 [node name="PlayerDeathzone" type="Area2D" parent="."]
+position = Vector2(-8, 170)
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeathzone"]
 position = Vector2(968.5, 1237.75)
 shape = SubResource("RectangleShape2D_7pvxe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-442, 922)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.842139
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-181, 956)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-19, 918)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(151, 929)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-295, 918)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(294, 910)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(399, 914)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(565, 891)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(678, 948)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(814, 910)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(935, 936)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1067, 917)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1184, 981)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1286, 883)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1388, 955)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1301, 1012)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1494, 884)
+scale = Vector2(3.15278, 3.15278)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1509, 956)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(1649, 858)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(60.0001, 964)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-367, 1016)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(486, 956)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-378, 854)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.231861
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="PlayerDeathzone"]
+position = Vector2(-378, 854)
+scale = Vector2(3.15278, 3.56944)
+sprite_frames = SubResource("SpriteFrames_d255d")
+autoplay = "default"
+frame_progress = 0.813122
 
 [connection signal="bat_spawned" from="Spawner" to="." method="_on_spawner_bat_spawned"]
 [connection signal="clock_spawned" from="SpawnerClock" to="." method="_on_spawner_clock_clock_spawned"]

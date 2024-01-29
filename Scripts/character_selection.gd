@@ -1,18 +1,18 @@
 extends Node2D
 
 var currently_selected_char 
-@onready var rosie = $Rosie
+@onready var rosie = $Tilly
 @onready var billy = $Billy
 @onready var billyplayer = $BillyPlayer
 @onready var rosieplayer = $RosiePlayer
-@onready var light1 = $RosieLight
-@onready var light2 = $BillyLight
+@onready var light1 = $Light1
+@onready var light2 = $Light2
 
 func _on_rosie_2_pressed():
-	rosie.play("Rosie")
+	rosie.play("Tilly")
 	billy.stop()
 	rosieplayer.play()
-	currently_selected_char = "Rosie"
+	currently_selected_char = "Tilly"
 	light1.enabled = true
 	light2.enabled = false
 

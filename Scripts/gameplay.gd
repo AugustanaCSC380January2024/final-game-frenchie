@@ -48,8 +48,8 @@ func get_player():
 	match Game.character_play:
 		"Billy":
 			player = load("res://Scenes/billy.tscn")
-		"Rosie":
-			player = load("res://Scenes/rosie.tscn")
+		"Tilly":
+			player = load("res://Scenes/tilly.tscn")
 func _physics_process(delta):
 	for area in $Areas.get_children():
 		area.position.x -= speed*delta

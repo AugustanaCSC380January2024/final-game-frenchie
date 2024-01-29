@@ -32,7 +32,8 @@ func _input(event):
 
 func _on_forfeit_pressed():
 	display_text("You coward!!")
-	await get_tree().create_timer(1).timeout
+	Music.play_sfx("forfeit")
+	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
 	
 func set_health(progress_bar, health, max_health):
@@ -44,6 +45,7 @@ func set_health(progress_bar, health, max_health):
 func _on_attack_pressed():
 	display_text("Die you horrid creature!")
 	await get_tree().create_timer(1).timeout
+	Music.play_sfx("attack")
 	$TextBox.hide()
 	current_boss_health = max(0, current_boss_health - Game.damage)
 	set_health(boss_progress_bar, current_boss_health, enemy.health)
@@ -54,9 +56,10 @@ func _on_attack_pressed():
 	
 	if current_boss_health == 0:
 		display_text("MIKANOS is slained")
+		Music.play_sfx("bossdeath")
 		await get_tree().create_timer(2).timeout
 		display_text("No... This can't be...")
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		get_tree().quit()
 	enemy_turn()
 
@@ -64,6 +67,7 @@ func enemy_turn():
 	await get_tree().create_timer(1).timeout
 	display_text("Rahahaha is that all you got?")
 	await get_tree().create_timer(1).timeout
+	Music.play_sfx("bossattack")
 	$TextBox.hide()
 	
 	if is_defending:
