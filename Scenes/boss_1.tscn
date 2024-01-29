@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ugpdote74fhx" path="res://Assets/individual sprites/01_demon_idle/demon_idle_6.png" id="6_40gvn"]
 [ext_resource type="Texture2D" uid="uid://d01fhjp8sdfwn" path="res://Assets/Cave_Tileset.png" id="7_itxx2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lsk"]
+size = Vector2(172.5, 203.5)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6rr86"]
 animations = [{
 "frames": [{
@@ -41,14 +44,18 @@ size = Vector2(169.5, 208.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6osk"]
 size = Vector2(250, 44)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lsk"]
-size = Vector2(172.5, 203.5)
-
 [node name="BossScene" type="StaticBody2D"]
 
 [node name="BossFire" type="CharacterBody2D" parent="."]
 position = Vector2(762.5, -273)
 script = ExtResource("1_8yfdq")
+
+[node name="Fight" type="Area2D" parent="BossFire"]
+position = Vector2(-762.5, 273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossFire/Fight"]
+position = Vector2(939.75, -107.75)
+shape = SubResource("RectangleShape2D_c3lsk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BossFire"]
 texture_filter = 1
@@ -71,10 +78,4 @@ position = Vector2(11, 17)
 scale = Vector2(1.55682, 1)
 texture = ExtResource("7_itxx2")
 
-[node name="Fight" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fight"]
-position = Vector2(939.75, -107.75)
-shape = SubResource("RectangleShape2D_c3lsk")
-
-[connection signal="body_entered" from="Fight" to="BossFire" method="_on_fight_body_entered"]
+[connection signal="body_entered" from="BossFire/Fight" to="BossFire" method="_on_fight_body_entered"]
