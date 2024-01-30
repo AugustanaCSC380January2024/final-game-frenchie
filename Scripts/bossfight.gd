@@ -2,6 +2,8 @@ extends Control
 
 @onready var player_progress_bar = $PlayerPanel/PlayerData/ProgressBar
 @onready var boss_progress_bar = $BossContainer/ProgressBar
+@onready var uilayer = $".."
+@onready var forfeitloser = $"../GameOver"
 
 @export var enemy: Resource = null
 
@@ -35,7 +37,8 @@ func _on_forfeit_pressed():
 	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
 	self.visible = false
-	get_parent().paused = false
+	forfeitloser.set_high_score("No one remembers a cowardly knight...")
+	uilayer.show_game_over(true)
 	
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8p8hj172wncf"]
+[gd_scene load_steps=11 format=3 uid="uid://b8p8hj172wncf"]
 
 [ext_resource type="Script" path="res://Scripts/BossFire.gd" id="1_8yfdq"]
 [ext_resource type="Texture2D" uid="uid://ct8e8yismd4i0" path="res://Assets/individual sprites/01_demon_idle/demon_idle_1.png" id="1_d663t"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://fncl6ejikbkp" path="res://Assets/individual sprites/01_demon_idle/demon_idle_4.png" id="4_4askc"]
 [ext_resource type="Texture2D" uid="uid://yolgoi0yn5ky" path="res://Assets/individual sprites/01_demon_idle/demon_idle_5.png" id="5_8ye5i"]
 [ext_resource type="Texture2D" uid="uid://ugpdote74fhx" path="res://Assets/individual sprites/01_demon_idle/demon_idle_6.png" id="6_40gvn"]
-[ext_resource type="Texture2D" uid="uid://d01fhjp8sdfwn" path="res://Assets/Cave_Tileset.png" id="7_itxx2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lsk"]
 size = Vector2(172.5, 203.5)
@@ -41,9 +40,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56gws"]
 size = Vector2(169.5, 208.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6osk"]
-size = Vector2(250, 44)
-
 [node name="BossScene" type="StaticBody2D"]
 
 [node name="BossFire" type="CharacterBody2D" parent="."]
@@ -70,14 +66,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFire"]
 position = Vector2(174.25, 168.75)
 shape = SubResource("RectangleShape2D_56gws")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1388, 767)
-shape = SubResource("RectangleShape2D_n6osk")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(11, 17)
-scale = Vector2(1.55682, 1)
-texture = ExtResource("7_itxx2")
 
 [connection signal="body_entered" from="BossFire/Fight" to="BossFire" method="_on_fight_body_entered"]

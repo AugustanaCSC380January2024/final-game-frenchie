@@ -234,6 +234,7 @@ animations = [{
 }]
 
 [node name="Gameplay" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_c26ar")
 
 [node name="background_2" parent="." instance=ExtResource("3_xm6o3")]

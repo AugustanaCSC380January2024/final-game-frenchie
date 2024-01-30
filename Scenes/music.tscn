@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bnteawhhtb63a" path="res://Assets/Sounds/Medieval Music - Medieval England [TubeRipper.com].ogg" id="2_18yin"]
 
 [node name="Music" type="Node"]
+process_mode = 3
 script = ExtResource("1_gwonf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

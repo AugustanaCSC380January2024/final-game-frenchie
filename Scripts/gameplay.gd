@@ -120,6 +120,8 @@ func on_player_die():
 	ui.show_game_over(true)
 	
 func _boss_encounter():
-	ui.show_boss_scene(true)
 	get_tree().paused = true
+	await get_tree().create_timer(1).timeout
+	ui.show_boss_scene(true)
+	
 	

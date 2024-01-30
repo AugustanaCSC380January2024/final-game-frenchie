@@ -9,9 +9,12 @@
 script = ExtResource("1_dkn07")
 
 [node name="HUD" parent="." instance=ExtResource("1_j2pev")]
+process_mode = 3
 
 [node name="GameOver" parent="." instance=ExtResource("3_nvpdw")]
+process_mode = 3
 visible = false
 
 [node name="Bossfight" parent="." instance=ExtResource("4_o6tdd")]
+process_mode = 2
 visible = false
