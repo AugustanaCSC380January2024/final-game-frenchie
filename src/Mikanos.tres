@@ -6,4 +6,4 @@
 script = ExtResource("1_m6nhl")
 name = "Mikanos"
 health = 100
-damage = 15
+damage = 80

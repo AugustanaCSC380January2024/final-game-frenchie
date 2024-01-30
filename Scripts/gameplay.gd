@@ -10,8 +10,11 @@ var player_ins
 @onready var bossfightscn = $Bossfight
 @onready var bosscamera = $Bossfight/Camera2D
 var bossscene = preload("res://Scenes/boss_1.tscn")
-
+var boss_ins = bossscene.instantiate()
 var bossfightscene = preload("res://Scenes/bossfight.tscn")
+var random_value = randi() % 5 * 5 + 175
+
+
 
 var segments = [
 	preload("res://Scenes/shape_1.tscn"),
@@ -26,6 +29,8 @@ var speed = 150
 var highscore
 
 func _ready():
+	print(random_value)
+	$UILayer/Bossfight.boss_chet.connect(boss_die)
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
 	if save_file != null:
 		highscore = save_file.get_32()
@@ -59,7 +64,7 @@ func _physics_process(delta):
 		if (area.position.x < -1060):
 			spawn_inst(area.position.x + 2048, 0)
 			print(speed)
-			if (speed % 165 == 0):
+			if (speed == random_value):
 				spawn_boss(area.position.x + 2048, 0)
 			area.queue_free()
 		
@@ -70,10 +75,11 @@ func spawn_inst(x, y):
 	speed += 5
 
 func spawn_boss(x, y):
-	var boss_ins = bossscene.instantiate()
+	#var boss_ins = bossscene.instantiate()
 	boss_ins.get_node("BossFire").boss_showup.connect(_boss_encounter)
 	boss_ins.position = Vector2(x, y - 800)
 	$Areas.add_child(boss_ins)
+	
 	
 
 func _process(delta):
@@ -124,4 +130,7 @@ func _boss_encounter():
 	await get_tree().create_timer(1).timeout
 	ui.show_boss_scene(true)
 	
-	
+func boss_die():
+	score = score + 5000
+	boss_ins.get_node("BossFire").queue_free()
+	boss_ins.get_node("BossFire").boss_showup.disconnect(_boss_encounter)

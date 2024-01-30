@@ -11,10 +11,11 @@ var current_player_health = 0
 var current_boss_health = 0
 var is_defending = false
 
+signal boss_chet
+
 func _ready():
 	current_player_health = Game.current_health
 	current_boss_health = enemy.health
-	
 	set_health(boss_progress_bar, enemy.health, enemy.health)
 	set_health(player_progress_bar, Game.current_health, Game.max_health)
 	$TextBox.hide()
@@ -64,7 +65,10 @@ func _on_attack_pressed():
 		await get_tree().create_timer(2).timeout
 		display_text("No... This can't be...")
 		await get_tree().create_timer(3).timeout
-		get_tree().quit()
+		self.visible = false
+		get_tree().paused = false
+		emit_signal("boss_chet")
+		
 	enemy_turn()
 
 func enemy_turn():
@@ -95,6 +99,9 @@ func enemy_turn():
 		await get_tree().create_timer(2).timeout
 		display_text("I am too young... too too young...")
 		await get_tree().create_timer(2).timeout
+		self.visible = false
+		forfeitloser.set_high_score("You have tried your best...")
+		uilayer.show_game_over(true)
 		
 
 
