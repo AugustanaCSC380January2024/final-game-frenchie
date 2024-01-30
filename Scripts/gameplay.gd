@@ -12,7 +12,7 @@ var player_ins
 var bossscene = preload("res://Scenes/boss_1.tscn")
 var boss_ins = bossscene.instantiate()
 var bossfightscene = preload("res://Scenes/bossfight.tscn")
-var random_value = randi() % 5 * 5 + 175
+var random_value = randi() % 5 * 5 + 190
 
 
 
@@ -31,6 +31,7 @@ var highscore
 func _ready():
 	print(random_value)
 	$UILayer/Bossfight.boss_chet.connect(boss_die)
+	$UILayer/Bossfight.bochay.connect(bo_chay)
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
 	if save_file != null:
 		highscore = save_file.get_32()
@@ -134,3 +135,10 @@ func boss_die():
 	score = score + 5000
 	boss_ins.get_node("BossFire").queue_free()
 	boss_ins.get_node("BossFire").boss_showup.disconnect(_boss_encounter)
+
+func bo_chay():
+	boss_ins.get_node("BossFire").boss_showup.disconnect(_boss_encounter)
+	score = score / 2
+	boss_ins.get_node("BossFire").queue_free()
+
+

@@ -12,6 +12,7 @@ var current_boss_health = 0
 var is_defending = false
 
 signal boss_chet
+signal bochay
 
 func _ready():
 	current_player_health = Game.current_health
@@ -37,10 +38,12 @@ func _on_forfeit_pressed():
 	Music.play_sfx("forfeit")
 	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
-	self.visible = false
-	forfeitloser.set_high_score("No one remembers a cowardly knight...")
-	uilayer.show_game_over(true)
-	
+	self.hide()
+	get_tree().paused = false
+	emit_signal("bochay")
+	#forfeitloser.set_high_score("No one remembers a cowardly knight...")
+	#uilayer.show_game_over(true)
+	#
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
 	progress_bar.max_value = max_health
@@ -58,18 +61,17 @@ func _on_attack_pressed():
 	display_text("You dealth %d damage!" % Game.damage)
 	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
-	
+	enemy_turn()
 	if current_boss_health == 0:
 		display_text("MIKANOS is slained")
 		Music.play_sfx("bossdeath")
 		await get_tree().create_timer(2).timeout
 		display_text("No... This can't be...")
 		await get_tree().create_timer(3).timeout
-		self.visible = false
+		self.hide()
 		get_tree().paused = false
 		emit_signal("boss_chet")
 		
-	enemy_turn()
 
 func enemy_turn():
 	await get_tree().create_timer(1).timeout
@@ -99,7 +101,7 @@ func enemy_turn():
 		await get_tree().create_timer(2).timeout
 		display_text("I am too young... too too young...")
 		await get_tree().create_timer(2).timeout
-		self.visible = false
+		self.hide()
 		forfeitloser.set_high_score("You have tried your best...")
 		uilayer.show_game_over(true)
 		
