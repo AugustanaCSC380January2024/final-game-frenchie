@@ -4,6 +4,7 @@ extends Control
 @onready var boss_progress_bar = $BossContainer/ProgressBar
 @onready var uilayer = $".."
 @onready var forfeitloser = $"../GameOver"
+@onready var selff = $"."
 
 @export var enemy: Resource = null
 
@@ -61,7 +62,6 @@ func _on_attack_pressed():
 	display_text("You dealth %d damage!" % Game.damage)
 	await get_tree().create_timer(2).timeout
 	$TextBox.hide()
-	enemy_turn()
 	if current_boss_health == 0:
 		display_text("MIKANOS is slained")
 		Music.play_sfx("bossdeath")
@@ -71,7 +71,8 @@ func _on_attack_pressed():
 		self.hide()
 		get_tree().paused = false
 		emit_signal("boss_chet")
-		
+	
+	enemy_turn()
 
 func enemy_turn():
 	await get_tree().create_timer(1).timeout

@@ -1,8 +1,8 @@
 extends Node2D
 
 var character_play : String
-var current_health = 100
-var max_health = 100
+var current_health = 150
+var max_health = 150
 var damage = randi_range(30, 41)
 
 

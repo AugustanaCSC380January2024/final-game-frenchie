@@ -12,7 +12,9 @@ var player_ins
 var bossscene = preload("res://Scenes/boss_1.tscn")
 var boss_ins = bossscene.instantiate()
 var bossfightscene = preload("res://Scenes/bossfight.tscn")
-var random_value = randi() % 5 * 5 + 190
+#var random_value = randi() % 5 * 5 + 190
+var random_value = 170
+var isBossAlive
 
 
 
@@ -21,7 +23,6 @@ var segments = [
 	preload("res://Scenes/shape_2.tscn"),
 	preload("res://Scenes/shape_3.tscn"),
 	preload("res://Scenes/shape_4.tscn"),
-	preload("res://Scenes/shape_5.tscn"),
 	preload("res://Scenes/shape6.tscn"),
 	preload("res://Scenes/shape_7.tscn")
 	]
@@ -29,6 +30,7 @@ var speed = 150
 var highscore
 
 func _ready():
+	isBossAlive = true
 	print(random_value)
 	$UILayer/Bossfight.boss_chet.connect(boss_die)
 	$UILayer/Bossfight.bochay.connect(bo_chay)
@@ -77,9 +79,10 @@ func spawn_inst(x, y):
 
 func spawn_boss(x, y):
 	#var boss_ins = bossscene.instantiate()
-	boss_ins.get_node("BossFire").boss_showup.connect(_boss_encounter)
-	boss_ins.position = Vector2(x, y - 800)
-	$Areas.add_child(boss_ins)
+	if isBossAlive:
+		boss_ins.get_node("BossFire").boss_showup.connect(_boss_encounter)
+		boss_ins.position = Vector2(x, y - 800)
+		$Areas.add_child(boss_ins)
 	
 	
 
@@ -132,11 +135,13 @@ func _boss_encounter():
 	ui.show_boss_scene(true)
 	
 func boss_die():
+	isBossAlive = false
 	score = score + 5000
 	boss_ins.get_node("BossFire").queue_free()
 	boss_ins.get_node("BossFire").boss_showup.disconnect(_boss_encounter)
 
 func bo_chay():
+	isBossAlive = false
 	boss_ins.get_node("BossFire").boss_showup.disconnect(_boss_encounter)
 	score = score / 2
 	boss_ins.get_node("BossFire").queue_free()
